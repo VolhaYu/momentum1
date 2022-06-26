@@ -14,10 +14,11 @@ body {
     box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
     
 }
-.container {    
+.container { 
+    max-width: 1440px;
     display: block;
     margin: 0 auto;
-    max-width: 1440px;
+    padding: 0;
 }
 .wrap-header {
     display: flex;
@@ -65,14 +66,11 @@ body {
 }
 /* main */
 /* section1 */
-.preview {
-    height: 675px;
 
-}
 .wrap-preview {
     width: 892px;
     height: 422px;
-    margin-top: 32px;
+    padding-top: 32px;
     margin-left: 120px;    
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -135,7 +133,7 @@ h1 {
 .steps {
     width: 1177px;
     height: 247px;
-    margin: 70px auto 97px;   
+    margin: 301px auto 97px;   
 }
 h2 {
     margin: 0;
@@ -155,9 +153,36 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+.frame {
+
+}
+.frame1 {
+    width: 247px;
+    height: 154px;    
+    margin-right: 231px;
+}
+.frame2 {
+    width: 222px;
+    height: 154px;    
+    margin-right: 160px;
+}
+.frame3 {
+    width: 317px;
+    height: 154px;    
+}
 .img-frames {
     padding-left: 73px;
     margin-top: 40px;
+    margin-bottom: 8px;
+}
+.img1 {
+    padding-left: 73px;
+}
+.img2 {
+    padding-left: 61px;
+}
+.img3 {
+    padding-left: 109px;
 }
 .p-steps {
     font-family: 'Aleo';
@@ -223,13 +248,15 @@ h2 {
     background: #F2785C;
 }
 .butt-destination {
-    background: #0D606F url(../assets/svg/bi_arrow-right.svg) left center no-repeat;
+    background: #0D606F url(../assets/svg/bi_arrow-right.svg) 30px center no-repeat;
     width: 228px;
     height: 59px;
+    padding-left: 50px;
     box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
     border-radius: 10px;
     border-style: none;
     margin: 0 auto;
+    display: block;
     font-family: 'Red Hat Text';
     font-style: normal;
     font-weight: 500;
@@ -237,9 +264,7 @@ h2 {
     line-height: 32px;
     color: #FFFFFF;
 }
-/* .arrow {
-    
-} */
+
 .footer {
     width: 728.96px;
     height: 33.65px;
