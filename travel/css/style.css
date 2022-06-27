@@ -1,10 +1,10 @@
 body {
     box-sizing: border-box;
     width: 1440px;
-    background-image: url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center top;    
+    background-image: url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg), url(../assets/img/Rectangle33.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover; 
+    background-position: center top, center bottom;    
     height: 765px;
 }
 /* шапка */
@@ -153,9 +153,6 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
-.frame {
-
-}
 .frame1 {
     width: 247px;
     height: 154px;    
@@ -247,7 +244,7 @@ h2 {
 #ellipse2 {
     background: #F2785C;
 }
-.butt-destination {
+.button {
     background: #0D606F url(../assets/svg/bi_arrow-right.svg) 30px center no-repeat;
     width: 228px;
     height: 59px;
@@ -264,7 +261,53 @@ h2 {
     line-height: 32px;
     color: #FFFFFF;
 }
-
+/* stories */
+.wrap-stories {
+    width: 1201px;
+    height: 1322px;
+    margin: 80px auto 0;
+    display: block;
+    border: 1px solid;
+}
+.story {
+    display: flex;
+    align-items: flex-start;
+    width: 1200px;
+    height: 250px;
+    margin-bottom: 30px;
+}
+.story1 {
+    margin-top: 80px;
+}
+.img-story {
+    margin-right: 40px;
+    background: url(robin-noguier-sydwCr54rf0-unsplash.jpg);
+    filter: drop-shadow(0px 4px 4px #0D606F);
+    border-radius: 16px;
+}
+.text-story {
+    flex: 1;
+}
+h3 {
+    margin: 0;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: #0D606F;
+}
+.p-story {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+}
+.story4 {
+    margin-bottom: 40px;
+}
 .footer {
     width: 728.96px;
     height: 33.65px;
