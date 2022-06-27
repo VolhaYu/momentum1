@@ -1,11 +1,9 @@
 body {
     box-sizing: border-box;
-    width: 1440px;
-    background-image: url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg), url(../assets/img/Rectangle33.jpg);
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover; 
-    background-position: center top, center bottom;    
-    height: 765px;
+    width: 100%;
+    background:
+     url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg) top no-repeat,
+     url(../assets/img/Rectangle33.jpg) bottom no-repeat;
 }
 /* шапка */
 .header {
@@ -34,6 +32,7 @@ body {
     display: flex;
     justify-content: flex-start;
     list-style: none;
+    padding: 0;
 }
 .nav-link a {
     font-family: 'Red Hat Text';
@@ -44,6 +43,7 @@ body {
     color: white;
     text-decoration: none;
     margin-right: 42px;
+    margin-left: 0;
     
 }
 .form-log {
@@ -196,14 +196,15 @@ h2 {
     align-items: flex-start;
     justify-content: space-around;
     overflow: hidden;
-    padding: 0px;
+    padding-left: 60px;
     margin-top: 46px;
     height: 800px;
 }
 .img-destination {
     width: 800px;
     height: 800px;  
-    margin-right: 60px;    
+    margin-right: 60px; 
+
 }
 .img-dest {
     border-radius: 16px;
@@ -262,12 +263,16 @@ h2 {
     color: #FFFFFF;
 }
 /* stories */
-.wrap-stories {
+.stories {
+    background: rgba(255, 255, 255, 0.7);
+    background-size: 1270px;
+}
+.wrap-stories {  
     width: 1201px;
     height: 1322px;
     margin: 80px auto 0;
     display: block;
-    border: 1px solid;
+    padding-bottom: 41px;
 }
 .story {
     display: flex;
@@ -308,7 +313,35 @@ h3 {
 .story4 {
     margin-bottom: 40px;
 }
+/* footer */
 .footer {
+    height: 61px;
+ }
+.wrap-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
     width: 728.96px;
     height: 33.65px;
+    margin-left: 590px; 
+    padding-top: 14px;
 }
+.p-footer {
+    margin: 0;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.soc-list {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+.soc-link {
+    margin-left: 20px;
+}
+
