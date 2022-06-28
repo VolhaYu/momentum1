@@ -355,7 +355,12 @@ h3 {
     justify-content: flex-start;
     list-style: none;
 }
-.soc-link {
+.soc-link a {
     margin-left: 20px;
+}
+.soc-link a:hover {
+    transition-duration: 1s;
+    position: relative;
+    bottom: 10px; 
 }
 
