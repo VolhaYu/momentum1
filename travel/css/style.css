@@ -4,20 +4,22 @@ html {
 }
 body {
     box-sizing: border-box;
-    /* width: 100%; */
+    width: 100%;
     background:
      url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg) top no-repeat,
      url(../assets/img/Rectangle33.jpg) bottom no-repeat;
+     /* background-size: */
 }
 /* шапка */
 .header {
+    width: 100%;
     height: 90px;
     background: rgba(242, 120, 92, 0.7);
     box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
     
 }
 .container { 
-    max-width: 1440px;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
     padding: 0;
@@ -162,7 +164,7 @@ h2 {
 
 }
 .wrap-frame {
-    width: 1177px;
+    width: 100%;
     height: 154px;
     display: flex;
     justify-content: space-between;
@@ -259,6 +261,9 @@ h2 {
 #ellipse2 {
     background: #F2785C;
 }
+.butt-destination {
+    margin-bottom: 80px;
+}
 .button {
     background: #0D606F url(../assets/svg/bi_arrow-right.svg) 30px center no-repeat;
     width: 228px;
@@ -279,11 +284,14 @@ h2 {
 /* stories */
 .stories {
     background: rgba(255, 255, 255, 0.7);
-    background-size: 1270px;
+    background-size: 100%;
+}
+.h2-stories {
+    margin-bottom: 40px;
 }
 .wrap-stories {  
     width: 1201px;
-    height: 1322px;
+    /* height: 1322px; */
     margin: 80px auto 0;
     display: block;
     padding-bottom: 41px;
@@ -335,9 +343,10 @@ h3 {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    width: 728.96px;
+    /* width: 728.96px; */
     height: 33.65px;
     margin-left: 590px; 
+    margin-right: 121px;
     padding-top: 14px;
 }
 .p-footer {
@@ -362,5 +371,57 @@ h3 {
     transition-duration: 1s;
     position: relative;
     bottom: 10px; 
+}
+@media screen and (max-width: 1200px) {
+    body {
+        background:
+     url(../assets/img_mobile/garrett-parker-DlkF4-dbCOU-unsplash_2.jpg) top no-repeat,
+     url(../assets/img_mobile/Rectangle_28.jpg) bottom no-repeat;
+        background-size: 100% 17%, 100% 40%;
+    }
+    .wrap-preview {
+        margin: 0 auto;
+    }
+    .steps {
+        width: 100%;
+        margin-top: 130px;
+    }
+    .wrap-frame {
+        width: 100%;
+    }
+    .p-steps {
+        padding-left: 73px;
+    }
+    .wrap-stories {
+        width: 100%;
+    }
+    .story {
+        width: 100%;
+        height: auto;
+    }
+    .img-story {
+        margin-top: 15px;
+
+    }
+    .wrap-footer {
+        width: 100%;
+        justify-content: center; 
+        margin: 0;
+    }
+}
+@media screen and (max-width: 992px) {
+    body {
+        background-size:100%; 
+    }
+    .wrap-header {
+        justify-content: center;
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+}
+@media screen and (max-width: 576px) {
+
 }
 
