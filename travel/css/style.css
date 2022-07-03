@@ -170,17 +170,14 @@ h2 {
     justify-content: space-between;
 }
 .frame1 {
-    width: 247px;
     height: 154px;    
     margin-right: 231px;
 }
 .frame2 {
-    width: 222px;
     height: 154px;    
     margin-right: 160px;
 }
 .frame3 {
-    width: 317px;
     height: 154px;    
 }
 .img-frames {
@@ -214,11 +211,8 @@ h2 {
     overflow: hidden;
     padding-left: 60px;
     margin-top: 46px;
-    height: 800px;
 }
 .img-destination {
-    width: 800px;
-    height: 800px;  
     margin-right: 60px; 
 
 }
@@ -291,7 +285,6 @@ h2 {
 }
 .wrap-stories {  
     width: 1201px;
-    /* height: 1322px; */
     margin: 80px auto 0;
     display: block;
     padding-bottom: 41px;
@@ -307,6 +300,8 @@ h2 {
     margin-top: 80px;
 }
 .img-story {
+    width: 400px;
+    height: 250px;
     margin-right: 40px;
     background: url(robin-noguier-sydwCr54rf0-unsplash.jpg);
     filter: drop-shadow(0px 4px 4px #0D606F);
@@ -343,7 +338,6 @@ h3 {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    /* width: 728.96px; */
     height: 33.65px;
     margin-left: 590px; 
     margin-right: 121px;
@@ -372,7 +366,7 @@ h3 {
     position: relative;
     bottom: 10px; 
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {    
     body {
         background:
      url(../assets/img_mobile/garrett-parker-DlkF4-dbCOU-unsplash_2.jpg) top no-repeat,
@@ -388,7 +382,7 @@ h3 {
     }
     .wrap-frame {
         width: 100%;
-    }
+    }    
     .p-steps {
         padding-left: 73px;
     }
@@ -399,25 +393,53 @@ h3 {
         width: 100%;
         height: auto;
     }
-    .img-story {
-        margin-top: 15px;
-
-    }
     .wrap-footer {
         width: 100%;
         justify-content: center; 
         margin: 0;
     }
 }
+
 @media screen and (max-width: 992px) {
     body {
-        background-size:100%; 
+        background-size:100%, 100%; 
     }
     .wrap-header {
         justify-content: center;
     }
+    .wrap-preview, .search  {
+        width: 98%;
+        margin: 0 auto;
+        padding-top: 0;
+    }
+    .steps {
+        margin-top: 40px;
+    }
+    .wrap-frame {
+        justify-content: center;
+    }
+    .frame1, .frame2 {
+        margin-right: 0;
+    }
+    .destination1, .destination2, .destination3 {
+        flex-shrink: 1;
+    }
+    .img-dest{
+        width: 550px;
 
+    }
+    .img-story {
+        width: 250px;
+        margin-left: 10px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    .p-story {
+        font-size: 16px;
+    } 
 }
+
 @media screen and (max-width: 768px) {
 
 }
