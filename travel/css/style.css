@@ -37,6 +37,7 @@ body {
 .nav-list {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;    
 }
@@ -181,7 +182,6 @@ h2 {
     height: 154px;    
 }
 .img-frames {
-    padding-left: 73px;
     margin-top: 40px;
     margin-bottom: 8px;
 }
@@ -366,6 +366,7 @@ h3 {
     position: relative;
     bottom: 10px; 
 }
+
 @media screen and (max-width: 1200px) {    
     body {
         background:
@@ -375,13 +376,15 @@ h3 {
     }
     .wrap-preview {
         margin: 0 auto;
+        height: auto;
     }
     .steps {
         width: 100%;
-        margin-top: 130px;
+        margin-top: 160px;
     }
     .wrap-frame {
-        width: 100%;
+        width: 98%;
+        margin: 0 auto;
     }    
     .p-steps {
         padding-left: 73px;
@@ -400,20 +403,26 @@ h3 {
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     body {
         background-size:100%, 100%; 
     }
-    .wrap-header {
-        justify-content: center;
+    .logo {
+        padding-left: 10px;
+    }
+    .form-log {
+        padding-right: 10px;
     }
     .wrap-preview, .search  {
         width: 98%;
         margin: 0 auto;
-        padding-top: 0;
     }
     .steps {
-        margin-top: 40px;
+        margin-top: 80px;
+    }
+    h2 {
+        font-size: 32px;
+        line-height: normal;
     }
     .wrap-frame {
         justify-content: center;
@@ -430,20 +439,53 @@ h3 {
     }
     .img-story {
         width: 250px;
+        height: auto;
         margin-left: 10px;
     }
     h3 {
         font-size: 30px;
+        line-height: 40px;
     }
     .p-story {
         font-size: 16px;
+        line-height: 20px;
     } 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+    .nav-link a {
+        margin-right: 5px;
+    }
+    h1 {
+        font-size: 40px;
+        line-height: normal;
+    }
+    .text-preview {
+        /* margin-bottom: 5px; */
+        line-height: normal;
+    }
+    .steps {
+        width: 98%;
+        margin: 0 auto;
+        height: auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    .p-steps {
+        padding-left: 10px;
+        font-size: 16px;
+    }
+    .img-frames {
+        padding-left: 40px;
+    }
+    .img-story {
+        width: 155px;
+        height: 130px;
+    }
+
 
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 390) {
 
 }
 
