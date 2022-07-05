@@ -31,6 +31,7 @@ body {
 }
 .logo {
     width: 216px;
+    height: 31px;
     margin: 0;
     padding: 25px 0 34px 120px;
 }
@@ -374,6 +375,12 @@ h3 {
      url(../assets/img_mobile/Rectangle_28.jpg) bottom no-repeat;
         background-size: 100% 17%, 100% 40%;
     }
+    .logo {
+        padding-left: 60px;
+    } 
+    .form-log  {
+        padding-right: 60px;
+    }
     .wrap-preview {
         margin: 0 auto;
         height: auto;
@@ -461,7 +468,6 @@ h3 {
         line-height: normal;
     }
     .text-preview {
-        /* margin-bottom: 5px; */
         line-height: normal;
     }
     .steps {
@@ -482,10 +488,48 @@ h3 {
         width: 155px;
         height: 130px;
     }
-
-
-}
-@media screen and (max-width: 390) {
-
 }
 
+@media screen and (max-width: 390px) { 
+ 
+    .header {
+        background: none;
+        box-shadow: none;
+        height: 32px;
+        padding-top: 43px;
+    } 
+    .container {
+        width: 360px;
+        margin: 0 auto;
+    }
+    .nav-list {
+        display: none;
+    }
+    .form-log {
+        display: none;
+    }
+    h1, .text-preview  {
+        display: none;
+
+    }
+    .wrap-preview {
+        padding-top: 67px;
+    }
+    .search {
+        width: 360px;
+        height: 48px;        
+    }
+    .text-search {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        padding-left: 16px;
+    }
+    .butt-search {
+        width: 92px;
+        height: 30px;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 15px;
+    }
+}
