@@ -497,10 +497,36 @@ h3 {
         box-shadow: none;
         height: 32px;
         padding-top: 43px;
-    } 
+    }     
     .container {
         width: 360px;
         margin: 0 auto;
+    }
+    .logo {
+        padding-left: 0;
+    }
+    .header-burger {
+        width: 35px;
+        height: 32px;
+        position: relative;
+        margin-right: 4px;
+    }
+    .burger-line {
+        margin: o auto;
+        width: 26.25px;
+        height: 2.67px;
+        background: #FFFFFF;
+        position: absolute;
+    }
+    .line-first {
+        top: 25%;
+    }
+    .line-third {
+        bottom: 25%;
+    }
+    .line-second {
+        top: 45.83%;
+        bottom: 45.83%;
     }
     .nav-list {
         display: none;
@@ -525,11 +551,35 @@ h3 {
         line-height: 17px;
         padding-left: 16px;
     }
+    .form-search {
+        padding-right: 9px;
+    }
     .butt-search {
         width: 92px;
         height: 30px;
         font-weight: 500;
         font-size: 11px;
         line-height: 15px;
+    }
+    .steps {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+    }
+    /* .wrap-frame {
+        margin-top: 21px;
+    } */
+    .img-frames {
+        width: 70px;
+        height: 70px;
+    }
+    .p-steps {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
     }
 }
