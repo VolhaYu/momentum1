@@ -256,7 +256,7 @@ h2 {
     background: rgba(242, 120, 92, 0.5);
     margin: 24px 10px 40px 0;
 }
-#ellipse2 {
+.ellipse2 {
     background: #F2785C;
 }
 .butt-destination {
@@ -625,7 +625,7 @@ h3 {
         width: 100%;
         margin-bottom: 20px;
     }
-    h2 {
+    h2, .h2-stories {
         font-weight: 500;
         font-size: 14px;
         line-height: 19px;
@@ -671,7 +671,92 @@ h3 {
         line-height: 12px;
         
     }
-    .p3 {
+    .frame3 :last-child {
         text-align: right;
     }
+    .wrap-destinations {
+        margin-top: 0;        
+    }
+    .img-destination {
+        height: 210px;
+    }
+    .img-dest {
+        width: 360px;
+        height: 210px;
+    }
+    .destination2, .destination3 {
+        display: none;
+    }
+    .country {
+        left: 15px;
+        top: 8px;
+    }
+    .p-country {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    /* .arrow {
+        height: 30px; */
+        /* position: absolute;
+        left: 20px;
+        top: 603px;
+        background: url(../assets/svg/ep_arrow-up-bold.svg) 325px center no-repeat,
+        url(../assets/svg/ep_arrow-up-bold1.svg) 5px center no-repeat; */
+    
+    /* .arrow-right {
+        position: absolute;
+        right: 5px;
+        top: 90px;
+    }
+    .arrow-left {
+        position: absolute;
+        left: 5px;
+        top: 90px;
+    } */
+    .wrap-ellipse {
+        position: absolute;
+        left: 177px;
+        top: 673px;
+    }
+    .ellipse {
+        width: 8px;
+        height: 8px;
+        margin: 0 6px 0 0;
+    }
+    .ellipse1 {
+        background: #F2785C;
+    }
+    .ellipse2 {
+        background: rgba(242, 120, 92, 0.5);
+    }
+    .butt-destination {
+        margin: 10px 0 20px;
+    }
+    .button {
+        width: 92px;
+        height: 30px;
+        font-size: 11px;
+        line-height: 15px;
+        background-size: 10px;
+        background-position: 12px;
+        padding-left: 22px;
+    }
+    .wrap-stories, .story1 {
+        margin-top: 0;
+    }
+    .story {
+        margin-bottom: 15px;
+    }
+    h3 {
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .img-story {
+        margin: 0 10px 0 0;
+    }
+    .p-story {
+        font-size: 9px;
+        line-height: 11px;
+    }
+
 }
