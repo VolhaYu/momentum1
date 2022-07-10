@@ -330,6 +330,12 @@ h3 {
     font-size: 20px;
     line-height: 24px;
     color: #0D606F;
+    margin-bottom: 0;
+}
+.p-story2 {
+    font-weight: 700;
+    text-decoration: underline;
+    margin-top: 0;
 }
 .story4 {
     margin-bottom: 40px;
@@ -500,11 +506,12 @@ h3 {
         box-shadow: none;
         height: 32px;
         padding-top: 43px;
-    }     
-    .container {
-        width: 360px;
-        margin: 0 auto;
-    }
+    } 
+    .wrap-header, .preview, .stories {
+        padding: 0 15px 0;
+        /* margin: 0 auto; */
+    }    
+
     .logo {
         padding-left: 0;
     }
@@ -534,20 +541,7 @@ h3 {
     .line-second {
         top: 45.83%;
         bottom: 45.83%;
-    }
-    .nav {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 2;
-        width: 165px;
-        height: 250px;
-        background: #F2785C;
-        box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
-        border-radius: 10px;
-        
-    }
+    }    
     .window-close {
         width: 30px;
         height: 30px;
@@ -574,11 +568,25 @@ h3 {
     .line2 {
         transform: rotate(-45deg);
     }
+    .nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 2;
+        width: 165px;
+        height: 250px;
+        background: #F2785C;
+        box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+        border-radius: 10px;
+        
+    }
     .nav-list {
         width: 106px;
         height: 176px;
         padding: 44px 15px 30px 44px;
         margin: 0;
+        justify-content: flex-end;
     }
     .nav-link a {
         font-style: normal;
@@ -586,6 +594,7 @@ h3 {
         font-size: 16px;
         line-height: 21px;
         margin: 0;
+        margin-bottom: 10px;
     }
     .nav-link-mob {
         display: block;
@@ -622,7 +631,7 @@ h3 {
         line-height: 15px;
     }
     .steps {
-        width: 100%;
+        width: 92%;
         margin-bottom: 20px;
     }
     h2, .h2-stories {
@@ -744,6 +753,9 @@ h3 {
     .wrap-stories, .story1 {
         margin-top: 0;
     }
+    .wrap-stories {
+        padding-bottom: 13px;
+    }
     .story {
         margin-bottom: 15px;
     }
@@ -755,8 +767,21 @@ h3 {
         margin: 0 10px 0 0;
     }
     .p-story {
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         font-size: 9px;
         line-height: 11px;
+    }
+    .story4 {
+        margin-bottom: 10px;
+    }
+    .p-footer {
+        display: none;
+    }
+    .soc-list {
+        padding-left: 0;
     }
 
 }
