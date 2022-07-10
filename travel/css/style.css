@@ -223,7 +223,6 @@ h2 {
 .img-dest {
     border-radius: 16px;
 }
-
 .destination1, .destination2, .destination3 {
     position: relative;
 }
@@ -232,7 +231,7 @@ h2 {
     position: absolute;
     left: 15px;
     bottom: 40px;
-    z-index: 9999;   
+    z-index: 5;   
 
 }
 .p-country {
@@ -684,7 +683,8 @@ h3 {
         text-align: right;
     }
     .wrap-destinations {
-        margin-top: 0;        
+        margin-top: 0; 
+        position: relative;       
     }
     .img-destination {
         height: 210px;
@@ -704,24 +704,17 @@ h3 {
         font-size: 20px;
         line-height: 26px;
     }
-    /* .arrow {
-        height: 30px; */
-        /* position: absolute;
+    .arrow {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
         left: 20px;
-        top: 603px;
-        background: url(../assets/svg/ep_arrow-up-bold.svg) 325px center no-repeat,
-        url(../assets/svg/ep_arrow-up-bold1.svg) 5px center no-repeat; */
-    
-    /* .arrow-right {
-        position: absolute;
-        right: 5px;
-        top: 90px;
-    }
+        top: 573px;
+        z-index: 1000;
+    } 
     .arrow-left {
-        position: absolute;
-        left: 5px;
-        top: 90px;
-    } */
+        margin-right: 290px;
+    }    
     .wrap-ellipse {
         position: absolute;
         left: 177px;
