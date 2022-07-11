@@ -16,15 +16,29 @@
     <header class="header">
         <div class="container">       
             <div class="wrap-header">
-                <img class="logo" src="assets/svg/logo.svg" alt="logo">
+                <picture>
+                    <source class="logo" media="(min-width:465px)" srcset="assets/svg/logo.svg">
+                    <img  src="assets/svg/Vector.svg" alt="logo">
+                  </picture>               
                 <nav class="nav">
+                    <div class="window-close">
+                        <span class="close-line line1"></span>
+                        <span class="close-line line2"></span>
+                    </div>
                     <ul class="nav-list">
                         <li class="nav-link"><a href="#steps">How It Works</a></li>
                         <li class="nav-link"><a href="#plan">Plan Your Trip</a></li>
                         <li class="nav-link"><a href="#destinations">Destinations</a></li>
                         <li class="nav-link"><a href="#stories">Travel Stories</a></li>
+                        <li class="nav-link nav-link-mob"><a href="#plan">Account</a></li>
+                        <li class="nav-link nav-link-mob"><a href="#social">Social Media</a></li>
                     </ul>
                 </nav>
+                <div class="header-burger">
+                    <span class="burger-line line-first"></span>
+                    <span class="burger-line line-second"></span>
+                    <span class="burger-line line-third"></span>
+                </div>
                 <form class="form-log">
                     <button class="login" type="submit">Login</button>
                 </form>
@@ -68,7 +82,7 @@
                 <h2>POPULAR DESTINATIONS</h2>               
                 <div class="wrap-destinations">                    
                     <div class="destination1">
-                        <div class="img-destination">                     
+                        <div class="img-destination"> 
                             <img class="img-dest" src="assets/img/Rectangle23.jpg" alt="Spain">                        
                         </div> 
                         <div class="country">
@@ -90,11 +104,19 @@
                         <div class="country">
                             <p class="p-country">USA</p>
                         </div>
-                    </div>    
-                </div>
+                    </div>                        
+                </div> 
+                <div class="arrow">
+                      <span class="arr-line1-1"></span>
+                      <span class="arr-line2-1"></span> 
+                      <span class="arr-line1-2"></span> 
+                      <span class="arr-line2-2"></span>                   
+                    <img class="arrow-left" src="assets/svg/ep_arrow-up-bold1.svg" alt="стрелка влево">
+                    <img class="arrow-right" src="assets/svg/ep_arrow-up-bold.svg" alt="стрелка вправо">
+                </div>              
                 <div class="wrap-ellipse">
-                    <div class="ellipse"></div>
-                    <div id="ellipse2" class="ellipse"></div>
+                    <div class="ellipse ellipse1"></div>
+                    <div class="ellipse ellipse2"></div>
                     <div class="ellipse"></div>
                 </div>
                 <form class="butt-destination">
@@ -102,41 +124,53 @@
                 </form>
             </section>
             <section class="stories" id="stories">
+                <h2 class="h2-stories">TRAVEL STORIES</h2>
                 <div class="wrap-stories">
-                    <h2>TRAVEL STORIES</h2>
                     <div class="story story1">
-                        <img class="img-story" src="assets/img/Rectangle29.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_15.jpg" alt="фото">
                         <div class="text-story">
                             <h3>10 Photos of Attractive Thailand</h3>
                             <p class="p-story" lang="zxx">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit... Read More
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                            </p>
+                            <p class="p-story p-story2">
+                                Read More
                             </p>
                         </div>
                     </div>
                     <div class="story">
-                        <img class="img-story" src="assets/img/Rectangle30.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_16.jpg" alt="фото">
                         <div class="text-story">
                             <h3>Canyonlands National Park, Utah</h3>
                             <p class="p-story" lang="zxx">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit... Read More
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                            </p>
+                            <p class="p-story p-story2">
+                                Read More
                             </p>
                         </div>
                     </div>
                     <div class="story">
-                        <img class="img-story" src="assets/img/Rectangle31.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_17.jpg" alt="фото">
                         <div class="text-story">
                             <h3>I left my heart in the Mountains!</h3>
                             <p class="p-story" lang="zxx">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit... Read More
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                            </p>
+                            <p class="p-story p-story2">
+                                Read More
                             </p>
                         </div>
                     </div>
                     <div class="story story4">
-                        <img class="img-story" src="assets/img/Rectangle32.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_27.jpg" alt="фото">
                         <div class="text-story">
                             <h3>The Longest journey in my life!</h3>
                             <p class="p-story" lang="zxx">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit... Read More
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                            </p>
+                            <p class="p-story p-story2">
+                                Read More
                             </p>
                         </div>
                     </div>
@@ -152,7 +186,7 @@
             <div class="wrap-footer">
                 <p class="p-footer">All Rights Reserved © Travel Portal</p>
                 <div class="social">
-                    <ul class="soc-list">
+                    <ul id="social" class="soc-list">
                         <li class="soc-link"><a href="#"><img src="assets/svg/akar-icons_instagram-fill.svg" alt="инстаграм"></a></li>
                         <li class="soc-link"><a href="https://github.com/VolhaYu"><img src="assets/svg/akar-icons_video.svg" alt="github"></a></li>
                         <li class="soc-link"><a href="https://rs.school/js-stage0/"><img src="assets/svg/akar-icons_twitter-fill.svg" alt="RSSchool"></a></li>
