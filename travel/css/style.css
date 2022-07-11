@@ -243,6 +243,9 @@ h2 {
     line-height: 42px;
     color: #FFFFFF;
 }
+.arrow {
+    display: none;
+}
 .wrap-ellipse {
     display: flex;
     justify-content: center;
@@ -508,7 +511,6 @@ h3 {
     } 
     .wrap-header, .preview, .stories {
         padding: 0 15px 0;
-        /* margin: 0 auto; */
     }    
 
     .logo {
@@ -572,15 +574,21 @@ h3 {
         position: fixed;
         top: 0;
         right: -100%;
-        z-index: 2;
+        z-index: 2000;
         width: 165px;
         height: 250px;
         background: #F2785C;
         box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
         border-radius: 10px;
+        transition-duration: 2s;
         
     }
+    .nav-active {
+        right: 0;
+        transition-duration: 1s;
+    }
     .nav-list {
+
         width: 106px;
         height: 176px;
         padding: 44px 15px 30px 44px;
@@ -705,16 +713,14 @@ h3 {
         line-height: 26px;
     }
     .arrow {
+        width: 90%;
         display: flex;
         justify-content: space-between;
         position: absolute;
         left: 20px;
         top: 573px;
         z-index: 1000;
-    } 
-    .arrow-left {
-        margin-right: 290px;
-    }    
+    }        
     .wrap-ellipse {
         position: absolute;
         left: 177px;
