@@ -8,15 +8,14 @@ body {
     background:
      url(../assets/img/garrett-parker-DlkF4-dbCOU-unsplash\ 1.jpg) top no-repeat,
      url(../assets/img/Rectangle33.jpg) bottom no-repeat;
-     /* background-size: */
 }
 /* шапка */
+
 .header {
     width: 100%;
     height: 90px;
     background: rgba(242, 120, 92, 0.7);
-    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
-    
+    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);    
 }
 .container { 
     max-width: 100%;
@@ -151,6 +150,7 @@ h1 {
     color: #FFFFFF;   
 }
 /* section2 */
+
 .steps {
     width: 1177px;
     height: 247px;
@@ -207,6 +207,7 @@ h2 {
     color: #0D606F;
 }
 /* section3 */
+
 .wrap-destinations {
     display: flex;
     flex-direction: row;
@@ -226,13 +227,11 @@ h2 {
 .destination1, .destination2, .destination3 {
     position: relative;
 }
-
 .country {
     position: absolute;
     left: 15px;
     bottom: 40px;
-    z-index: 5;   
-
+    z-index: 5;
 }
 .p-country {
     margin: 0;
@@ -242,6 +241,9 @@ h2 {
     font-size: 32px;
     line-height: 42px;
     color: #FFFFFF;
+}
+.arrow {
+    display: none;
 }
 .wrap-ellipse {
     display: flex;
@@ -279,6 +281,7 @@ h2 {
     color: #FFFFFF;
 }
 /* stories */
+
 .stories {
     background: rgba(255, 255, 255, 0.7);
     background-size: 100%;
@@ -340,6 +343,7 @@ h3 {
     margin-bottom: 40px;
 }
 /* footer */
+
 .footer {
     height: 61px;
  }
@@ -499,7 +503,6 @@ h3 {
 }
 
 @media screen and (max-width: 390px) { 
- 
     .header {
         background: none;
         box-shadow: none;
@@ -508,9 +511,7 @@ h3 {
     } 
     .wrap-header, .preview, .stories {
         padding: 0 15px 0;
-        /* margin: 0 auto; */
-    }    
-
+    } 
     .logo {
         padding-left: 0;
     }
@@ -572,13 +573,18 @@ h3 {
         position: fixed;
         top: 0;
         right: -100%;
-        z-index: 2;
+        z-index: 2000;
         width: 165px;
         height: 250px;
         background: #F2785C;
         box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
         border-radius: 10px;
-        
+        transition-duration: 1s;        
+    }
+    .nav-active {
+        right: 0;
+        transition-duration: 1s;
+        box-shadow: 0 0 9999px 1000px rgb(0 0 0 / 40%);;
     }
     .nav-list {
         width: 106px;
@@ -705,16 +711,14 @@ h3 {
         line-height: 26px;
     }
     .arrow {
+        width: 90%;
         display: flex;
         justify-content: space-between;
         position: absolute;
         left: 20px;
         top: 573px;
         z-index: 1000;
-    } 
-    .arrow-left {
-        margin-right: 290px;
-    }    
+    }        
     .wrap-ellipse {
         position: absolute;
         left: 177px;
@@ -776,5 +780,4 @@ h3 {
     .soc-list {
         padding-left: 0;
     }
-
 }
