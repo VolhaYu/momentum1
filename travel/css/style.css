@@ -84,6 +84,140 @@ body {
     background-color: #9a9c9c;
     color: #084955;
 }
+.pop-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(20, 20, 20, 0.3);
+}
+.pop-up-content {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 650px;
+    height: 660px;
+    background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.pop-up-container {
+    width: 560px;
+    display: block;
+    margin: 0 auto;
+}
+.h3-pop-up {
+    padding-top: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #0D606F;
+}
+.sign {
+    width: 100%;
+    height: 56px;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    border: none;
+    color: #FFFFFF;
+}
+.sign-fb {
+    margin-bottom: 20px;
+    background: #1877F2;
+}
+.sign-google {
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    color: #0D606F;
+}
+.logo-soc {
+    margin-right: 9px;
+    vertical-align: middle;
+}
+.lines {
+    width: 100%;
+    height: 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+hr {
+    width: 261px;
+    border: none;
+    background-color: rgba(13, 96, 111, 0.5);
+    height: 1px;
+}
+.or {
+    text-align: center;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(13, 96, 111, 0.5);
+}
+.label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #0D606F;
+}
+.input {
+    width: 100%;
+    height: 54px;
+    margin-top: 5px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    border: none;
+}
+.sign-in {
+    background: #0D606F;
+    margin-bottom: 10px;
+}
+.p-pop-up {
+    margin-top: 0;
+    text-align: center;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: #0D606F;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    margin-bottom: 26px;
+}
+.hr-foot {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.pop-up-footer {
+    text-decoration-line: none;
+    color: rgba(13, 96, 111, 0.5);
+    padding-bottom: 23px;
+    margin-bottom: 0;
+}
+
 /* main */
 /* section1 */
 
