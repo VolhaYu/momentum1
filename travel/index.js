@@ -28,6 +28,30 @@ document.addEventListener('click', e => {
     }    
   });
 
+  const login = document.querySelectorAll('.login-click');
+  const popup = document.querySelector('.pop-up');
+  const popupcontent = document.querySelector('.pop-up-content');
+  const signup = document.querySelector('.sign-up');
+  const register = document.querySelector('.register');
+
+  
+  for(let i = 0; i < login.length; i++) {
+    login[i].addEventListener('click', () => {
+        popup.classList.add('pop-up-active');
+      });
+  }
+
+popup.addEventListener('click', event => {
+    if(event.target.classList.contains('pop-up')) {
+        popup.classList.toggle('pop-up-active');
+    }
+});
+register.addEventListener('click', () => {
+    signup.classList.add('sign-up-active');
+    popupcontent.classList.add('pop-up-non-active');
+});
+  console.log(login);
+
 
 console.log(`Score 85/75\n
 1. Вёрстка соответствует макету.Ширина экрана 390px +48\n

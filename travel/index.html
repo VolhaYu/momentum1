@@ -29,7 +29,7 @@
                         <li class="nav-link"><a href="#plan">Plan Your Trip</a></li>
                         <li class="nav-link"><a href="#destinations">Destinations</a></li>
                         <li class="nav-link"><a href="#stories">Travel Stories</a></li>
-                        <li class="nav-link nav-link-mob"><a href="#">Account</a></li>
+                        <li class="nav-link nav-link-mob login-click"><a href="#">Account</a></li>
                         <li class="nav-link nav-link-mob"><a href="#social">Social Media</a></li>
                     </ul>
                 </nav>
@@ -39,7 +39,7 @@
                     <span class="burger-line line-third"></span>
                 </div>
                 <form class="form-log">
-                    <button class="login" type="submit">Login</button>
+                    <button class="login login-click" type="submit">Login</button>
                 </form>
                 <div class="pop-up">
                     <div class="pop-up-content">
@@ -56,16 +56,30 @@
                             </div>
                             <form action="#">
                                 <label class="label"> E-mail
-                                    <input class="input" type="text">
+                                    <input class="input" type="text" value="E-mail">
                                 </label>
                                 <label class="label"> Password
-                                    <input class="input" type="text" password>
+                                    <input class="input" type="password" value="password">
                                 </label>
                                 <button class="sign sign-in" type="submit">Sign In</button>                                
                             </form>
-                            <p class="p-pop-up">Forgot Your Password?</p>
+                            <p class="p-pop-up p-pointer">Forgot Your Password?</p>
                             <hr class="hr-foot">
-                            <p class="p-pop-up pop-up-footer">Don’t have an account? <span class="p-pop-up">Register</span></p>
+                            <p class="p-pop-up pop-up-footer">Don’t have an account? <span class="p-pop-up p-pointer register">Register</span></p>
+                        </div>
+                    </div>
+                    <div class="sign-up pop-up-content">
+                        <div class="pop-up-container">
+                            <h3 class="h3-pop-up">Create account</h3>
+                            <form action="#">
+                                <button class="sign sign-fb" type="submit"><img class="logo-soc" src="assets/svg/Facebook-Logo.svg" alt="logo-fb"> Sign In with Facebook</button>
+                                <button class="sign sign-google" type="submit"><img class="logo-soc"src="assets/svg/Google-Logo.svg" alt="logo-google"> Sign In with Google</button>
+                            </form>
+                            <form action="#">
+                                <button class="sign sign-in" type="submit">Sign Up</button> 
+                            </form> 
+                            <hr class="hr-foot">
+                            <p class="p-pop-up pop-up-footer">Already have an account? <span class="p-pop-up p-pointer">Log in</span></p>
                         </div>
                     </div>     
                 </div>
