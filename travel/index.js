@@ -33,13 +33,16 @@ document.addEventListener('click', e => {
   const popupcontent = document.querySelector('.pop-up-content');
   const signup = document.querySelector('.sign-up');
   const register = document.querySelector('.register');
+  const form = document.querySelectorAll('.form-sabmit');
+  const signIn = document.querySelector('.sign-in');
+  const input = document.querySelectorAll('.input');
 
   
-  for(let i = 0; i < login.length; i++) {
+for(let i = 0; i < login.length; i++) {
     login[i].addEventListener('click', () => {
         popup.classList.add('pop-up-active');
       });
-  }
+}
 
 popup.addEventListener('click', event => {
     if(event.target.classList.contains('pop-up')) {
@@ -50,7 +53,14 @@ register.addEventListener('click', () => {
     signup.classList.add('sign-up-active');
     popupcontent.classList.add('pop-up-non-active');
 });
-  console.log(login);
+signIn.addEventListener('click', () => {
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    alert(email.value + " " + password.value);
+    
+})
+
+
 
 
 console.log(`Score 85/75\n
