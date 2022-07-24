@@ -361,10 +361,10 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: center;
     overflow: hidden;
     padding-left: 60px;
-    margin-top: 46px;
+    margin-top: 46px;    
 }
 .img-destination {
     margin-right: 60px; 
@@ -373,8 +373,21 @@ h2 {
 .img-dest {
     border-radius: 16px;
 }
-.destination1, .destination2, .destination3 {
+.destination {
     position: relative;
+}
+.wrap-destinations-active1 {
+    justify-content: flex-start;
+    transition: transform 2s ease;
+}
+
+.wrap-destinations-active2 {
+    justify-content: center;
+    transition: transform 2s ease;
+}
+.wrap-destinations-active3 {
+    justify-content: flex-end;
+    transition: transform 2s ease;
 }
 .country {
     position: absolute;
@@ -409,6 +422,12 @@ h2 {
 .ellipse2 {
     background: #F2785C;
 }
+.ellipse-active {
+    background: #F2785C;
+}
+.ellipse-non-active {
+    background: rgba(242, 120, 92, 0.5);
+} 
 .butt-destination {
     margin-bottom: 80px;
 }
@@ -655,6 +674,7 @@ h3 {
         width: 100%;
     }
 }
+
 @media screen and (max-width: 390px) { 
     .header {
         background: none;
@@ -843,17 +863,22 @@ h3 {
     }
     .wrap-destinations {
         margin-top: 0; 
-        position: relative;       
-    }
+        position: relative; 
+        justify-content: flex-start;
+        padding-left: 15px;
+    }   
     .img-destination {
         height: 210px;
     }
     .img-dest {
-        width: 360px;
+        max-width: 360px;
         height: 210px;
     }
-    .destination2, .destination3 {
+    .destination {
         display: none;
+    }
+    .destination-active {
+        display: block;
     }
     .country {
         left: 15px;
@@ -871,7 +896,10 @@ h3 {
         left: 20px;
         top: 573px;
         z-index: 1000;
-    }        
+    }  
+    .arrow-non-active {
+        opacity: 0.5;
+    }      
     .wrap-ellipse {
         position: absolute;
         left: 177px;
@@ -881,13 +909,17 @@ h3 {
         width: 8px;
         height: 8px;
         margin: 0 6px 0 0;
+        background: rgba(242, 120, 92, 0.5);
     }
-    .ellipse1 {
+    .ellipse-active {
+        background: #F2785C;
+    }
+    /* .ellipse1 {
         background: #F2785C;
     }
     .ellipse2 {
         background: rgba(242, 120, 92, 0.5);
-    }
+    } */
     .butt-destination {
         margin: 10px 0 20px;
     }
