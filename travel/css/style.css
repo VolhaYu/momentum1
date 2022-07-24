@@ -376,18 +376,17 @@ h2 {
 .destination {
     position: relative;
 }
-.wrap-destinations-active1 {
-    justify-content: flex-start;
-    transition: transform 2s ease;
+.destination1-activ {
+    order: 1;
+    transition: 1s;
 }
-
-.wrap-destinations-active2 {
-    justify-content: center;
-    transition: transform 2s ease;
+.destination2-activ {
+    order: -1;
+    transition: 1s;
 }
-.wrap-destinations-active3 {
-    justify-content: flex-end;
-    transition: transform 2s ease;
+.destination3-activ {
+    order: -2;
+    transition: 1s;
 }
 .country {
     position: absolute;
@@ -876,9 +875,12 @@ h3 {
     }
     .destination {
         display: none;
+        opacity: 0;
     }
     .destination-active {
         display: block;
+        opacity: 1;
+        transition: opacity 1s 3s;
     }
     .country {
         left: 15px;
