@@ -61,7 +61,6 @@ signIn.addEventListener('click', () => {
 });
 
   // slider
-  // Desktop
 
 const slider = document.querySelector('.wrap-destinations');
 const slides = document.querySelectorAll('.destination');
@@ -71,26 +70,55 @@ const slide3 = document.querySelector('.destination3');
 const arrowLeft = document.querySelectorAll('.arrow-left');
 const arrowRight = document.querySelectorAll('.arrow-right');
 const ellipse = document.querySelectorAll('.ellipse');
+  // Desktop
+
+let arr = [slide1, slide2, slide3];
 
 slide1.addEventListener('click', () => {
-    slide2.classList.add('destination2-activ');
+    slider.classList.add('wrap-destinations-active1');
+    slider.classList.remove('wrap-destinations-active2');
     ellipse[0].classList.add('ellipse-active');
-    ellipse[1].classList.add('ellipse-non-active');
+    ellipse[0].classList.remove('ellipse-non-active');
+    ellipse[1].classList.toggle('ellipse-non-active');
+    ellipse[2].classList.toggle('ellipse-non-active', 'ellipse-active');
 });
 slide2.addEventListener('click', () => {
-    slide3.classList.add('destination3-activ');
+    slider.classList.remove('wrap-destinations-active1');
+    slider.classList.toggle('wrap-destinations-active2');
+    slider.classList.remove('wrap-destinations-active3');
     ellipse[1].classList.add('ellipse-active');
     ellipse[1].classList.remove('ellipse-non-active');
-    ellipse[0].classList.remove('ellipse-active');
-    ellipse[2].classList.remove('ellipse-active');
+    ellipse[0].classList.toggle('ellipse-non-active', 'ellipse-active');
+    ellipse[2].classList.toggle('ellipse-non-active', 'ellipse-active');
 });
 slide3.addEventListener('click', () => {
-    slide1.classList.add('destination1-activ');
-    slide2.classList.add('destination2-activ');
+    slider.classList.remove('wrap-destinations-active2');
+    slider.classList.toggle('wrap-destinations-active3');
     ellipse[2].classList.add('ellipse-active');
-    ellipse[1].classList.remove('ellipse-active');
-    ellipse[0].classList.remove('ellipse-active');
+    ellipse[2].classList.remove('ellipse-non-active');
+    ellipse[0].classList.toggle('ellipse-non-active', 'ellipse-active');
+    ellipse[1].classList.toggle('ellipse-non-active');
 });
+
+// slide1.addEventListener('click', () => {
+//     slide2.classList.add('destination2-activ');
+//     ellipse[0].classList.add('ellipse-active');
+//     ellipse[1].classList.add('ellipse-non-active');
+// });
+// slide2.addEventListener('click', () => {
+//     slide3.classList.add('destination3-activ');
+//     ellipse[1].classList.add('ellipse-active');
+//     ellipse[1].classList.remove('ellipse-non-active');
+//     ellipse[0].classList.remove('ellipse-active');
+//     ellipse[2].classList.remove('ellipse-active');
+// });
+// slide3.addEventListener('click', () => {
+//     slide1.classList.add('destination1-activ');
+//     slide2.classList.add('destination2-activ');
+//     ellipse[2].classList.add('ellipse-active');
+//     ellipse[1].classList.remove('ellipse-active');
+//     ellipse[0].classList.remove('ellipse-active');
+// });
 
   // mobile
 

@@ -364,7 +364,21 @@ h2 {
     justify-content: center;
     overflow: hidden;
     padding-left: 60px;
-    margin-top: 46px;    
+    margin-top: 46px;
+    position: relative;  
+}
+.wrap-destinations-active1 {
+    justify-content: flex-start;
+    transition: transform 2s ease;
+}
+
+.wrap-destinations-active2 {
+    justify-content: center;
+    transition: transform 2s ease;
+}
+.wrap-destinations-active3 {
+    justify-content: flex-end;
+    transition: transform 2s ease;
 }
 .img-destination {
     margin-right: 60px; 
