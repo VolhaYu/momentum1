@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400&family=Red+Hat+Text:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/img/icons-солнце.ico">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="index.js" defer></script>   
+    <link rel="stylesheet" href="css/style.css">       
 </head>
 <body>    
     <header class="header">
@@ -30,7 +29,7 @@
                         <li class="nav-link"><a href="#plan">Plan Your Trip</a></li>
                         <li class="nav-link"><a href="#destinations">Destinations</a></li>
                         <li class="nav-link"><a href="#stories">Travel Stories</a></li>
-                        <li class="nav-link nav-link-mob"><a href="#">Account</a></li>
+                        <li class="nav-link nav-link-mob login-click"><a href="#">Account</a></li>
                         <li class="nav-link nav-link-mob"><a href="#social">Social Media</a></li>
                     </ul>
                 </nav>
@@ -40,8 +39,50 @@
                     <span class="burger-line line-third"></span>
                 </div>
                 <form class="form-log">
-                    <button class="login" type="submit">Login</button>
+                    <button class="login login-click" type="submit">Login</button>
                 </form>
+                <div class="pop-up">
+                    <div class="pop-up-content">
+                        <div class="pop-up-container">                       
+                            <h3 class="h3-pop-up">Log in to your account</h3>
+                            <form action="#">
+                                <button class="sign sign-fb" type="submit"><img class="logo-soc" src="assets/svg/Facebook-Logo.svg" alt="logo-fb"> Sign In with Facebook</button>
+                                <button class="sign sign-google" type="submit"><img class="logo-soc"src="assets/svg/Google-Logo.svg" alt="logo-google"> Sign In with Google</button>
+                            </form> 
+                            <div class="lines">                       
+                                <hr>
+                                <p class="or">or</p>
+                                <hr>
+                            </div>
+                            <form class="form-sabmit" action="#">
+                                <label class="label"> E-mail
+                                    <input class="input" type="email" id="email">
+                                </label>
+                                <label class="label"> Password
+                                    <input class="input" type="password" id="password">
+                                </label>
+                                <button class="sign sign-in" type="submit">Sign In</button>                                
+                            </form>
+                            <p class="p-pop-up p-pointer">Forgot Your Password?</p>
+                            <hr class="hr-foot">
+                            <p class="p-pop-up pop-up-footer">Don’t have an account? <span class="p-pop-up p-pointer register">Register</span></p>
+                        </div>
+                    </div>
+                    <div class="sign-up pop-up-content">
+                        <div class="pop-up-container">
+                            <h3 class="h3-pop-up">Create account</h3>
+                            <form action="#">
+                                <button class="sign sign-fb" type="submit"><img class="logo-soc" src="assets/svg/Facebook-Logo.svg" alt="logo-fb"> Sign In with Facebook</button>
+                                <button class="sign sign-google" type="submit"><img class="logo-soc"src="assets/svg/Google-Logo.svg" alt="logo-google"> Sign In with Google</button>
+                            </form>
+                            <form action="#">
+                                <button class="sign sign-in" type="submit">Sign Up</button> 
+                            </form> 
+                            <hr class="hr-foot">
+                            <p class="p-pop-up pop-up-footer">Already have an account? <span class="p-pop-up p-pointer">Log in</span></p>
+                        </div>
+                    </div>     
+                </div>
             </div>
         </div>
     </header>
@@ -81,7 +122,7 @@
             <section class="destinations" id="destinations"> 
                 <h2>POPULAR DESTINATIONS</h2>               
                 <div class="wrap-destinations">                    
-                    <div class="destination1">
+                    <div class="destination destination1 destination-active">
                         <div class="img-destination"> 
                             <img class="img-dest" src="assets/img/Rectangle23.jpg" alt="Spain">                        
                         </div> 
@@ -89,7 +130,7 @@
                             <p class="p-country">SPAIN</p>
                         </div>
                     </div>
-                    <div class="destination2">
+                    <div class="destination destination2">
                         <div class="img-destination">
                             <img class="img-dest" src="assets/img/Rectangle24.jpg" alt="Japan">                    
                         </div>
@@ -97,7 +138,7 @@
                             <p class="p-country">JAPAN</p>
                         </div>
                     </div>
-                    <div class="destination3">
+                    <div class="destination destination3">
                         <div class="img-destination">
                             <img class="img-dest" src="assets/img/Rectangle25.jpg" alt="USA">                        
                         </div>
@@ -107,13 +148,13 @@
                     </div>                        
                 </div> 
                 <div class="arrow">                   
-                    <img class="arrow-left" src="assets/svg/ep_arrow-up-bold1.svg" alt="стрелка влево">
-                    <img class="arrow-right" src="assets/svg/ep_arrow-up-bold.svg" alt="стрелка вправо">
+                    <img class="arrow-left arrow-non-active" src="assets/svg/ep_arrow-left.svg" alt="стрелка влево">
+                    <img class="arrow-right" src="assets/svg/ep_arrow-right.svg" alt="стрелка вправо">
                 </div>              
                 <div class="wrap-ellipse">
                     <div class="ellipse ellipse1"></div>
                     <div class="ellipse ellipse2"></div>
-                    <div class="ellipse"></div>
+                    <div class="ellipse ellipse3"></div>
                 </div>
                 <form class="butt-destination">
                     <button class="button" type="submit">Find More</button>
@@ -147,7 +188,7 @@
                         </div>
                     </div>
                     <div class="story">
-                        <img class="img-story" src="assets/img/Rectangle_17.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_27.jpg" alt="фото">
                         <div class="text-story">
                             <h3>I left my heart in the Mountains!</h3>
                             <p class="p-story" lang="zxx">
@@ -159,7 +200,7 @@
                         </div>
                     </div>
                     <div class="story story4">
-                        <img class="img-story" src="assets/img/Rectangle_27.jpg" alt="фото">
+                        <img class="img-story" src="assets/img/Rectangle_17.jpg" alt="фото">
                         <div class="text-story">
                             <h3>The Longest journey in my life!</h3>
                             <p class="p-story" lang="zxx">
@@ -191,5 +232,6 @@
             </div>
         </div>
     </footer>
+    <script src="index.js" defer></script>
 </body>
 </html>
