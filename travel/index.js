@@ -72,54 +72,33 @@ const arrowRight = document.querySelectorAll('.arrow-right');
 const ellipse = document.querySelectorAll('.ellipse');
   // Desktop
 
-let arr = [slide1, slide2, slide3];
 
 slide1.addEventListener('click', () => {
-    slider.classList.add('wrap-destinations-active1');
-    slider.classList.remove('wrap-destinations-active2');
-    ellipse[0].classList.add('ellipse-active');
-    ellipse[0].classList.remove('ellipse-non-active');
-    ellipse[1].classList.toggle('ellipse-non-active');
-    ellipse[2].classList.toggle('ellipse-non-active', 'ellipse-active');
+    slider.classList.add('active-Left');
+    slider.classList.remove('active-center','active-right');
+    activeEllipse(index);
+    ellipse[1].classList.add('ellipse-non-active');
+
 });
+slide1.addEventListener('animationend', () => {
+    slider.classList.remove('active-Left');
+})
 slide2.addEventListener('click', () => {
-    slider.classList.remove('wrap-destinations-active1');
-    slider.classList.toggle('wrap-destinations-active2');
-    slider.classList.remove('wrap-destinations-active3');
+    slider.classList.add('active-center');
+    slider.classList.remove('active-Left', 'active-right');
     ellipse[1].classList.add('ellipse-active');
     ellipse[1].classList.remove('ellipse-non-active');
-    ellipse[0].classList.toggle('ellipse-non-active', 'ellipse-active');
-    ellipse[2].classList.toggle('ellipse-non-active', 'ellipse-active');
+    ellipse[0].classList.remove('ellipse-active');
+    ellipse[2].classList.remove('ellipse-active');
 });
 slide3.addEventListener('click', () => {
-    slider.classList.remove('wrap-destinations-active2');
-    slider.classList.toggle('wrap-destinations-active3');
+    slider.classList.add('active-right');
+    slider.classList.remove('active-center','active-left');
     ellipse[2].classList.add('ellipse-active');
-    ellipse[2].classList.remove('ellipse-non-active');
-    ellipse[0].classList.toggle('ellipse-non-active', 'ellipse-active');
-    ellipse[1].classList.toggle('ellipse-non-active');
+    ellipse[1].classList.remove('ellipse-active');
+    ellipse[1].classList.add('ellipse-non-active');
+    ellipse[0].classList.remove('ellipse-active');
 });
-
-// slide1.addEventListener('click', () => {
-//     slide2.classList.add('destination2-activ');
-//     ellipse[0].classList.add('ellipse-active');
-//     ellipse[1].classList.add('ellipse-non-active');
-// });
-// slide2.addEventListener('click', () => {
-//     slide3.classList.add('destination3-activ');
-//     ellipse[1].classList.add('ellipse-active');
-//     ellipse[1].classList.remove('ellipse-non-active');
-//     ellipse[0].classList.remove('ellipse-active');
-//     ellipse[2].classList.remove('ellipse-active');
-// });
-// slide3.addEventListener('click', () => {
-//     slide1.classList.add('destination1-activ');
-//     slide2.classList.add('destination2-activ');
-//     ellipse[2].classList.add('ellipse-active');
-//     ellipse[1].classList.remove('ellipse-active');
-//     ellipse[0].classList.remove('ellipse-active');
-// });
-
   // mobile
 
 let index = 0;
@@ -169,9 +148,9 @@ arrowLeft[0].addEventListener('click', prevSlide);
 
 console.log(`Score 125/100\n
 1. Слайдер изображений в секции destinations +50\n
-    -на десктоп варианте при клике на урезанную картинку слева или справа изображение меняется по принципу карусели (например если нажать правую картинку та что была в центре на уезжает налево, а та что была видна наполовину оказывается справа). Слайдер может быть как конечным так и бесконечным - данный критерий не должен влиять на оценку + 20\n
+    -на десктоп варианте при клике на урезанную картинку слева или справа изображение меняется по принципу карусели + 20\n
     -Три точки внизу отображают "номер слайда", то есть каждому слайду соответствует свой кружочек, который становится активным при нахождении соответствующего ему слайда в центре. На мобильном варианте картинка одна, но поверх нее появляются стрелочки навигации (можно сделать как карусель или же затемнять кнопку если слайдер достиг края) +20\n
-    -Анимации плавного перемещения для слайдера +10\n
+    -Анимации плавного перемещения для слайдера +10 (В мобильной версии не получилось)\n
 2. Нажатие на кнопку Login (кнопка Account в мобильной версии) показывает сверстанный логин попап + 50\n
     -логин попап соответствует верстке его закрытие происходит при клике вне попапа +25\n
     -логин попап имеет 2 инпута (email и пароль) при нажатии на кнопку Sign In показывается браузерный алерт с введенными данными (для реализации можно использовать тег ) +25\n
