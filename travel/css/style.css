@@ -693,7 +693,7 @@ h3 {
 
 @media screen and (max-width: 390px) { 
     .header {
-        background: none;
+        background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 90%);
         box-shadow: none;
         height: 32px;
         padding-top: 43px;

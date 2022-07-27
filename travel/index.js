@@ -34,9 +34,9 @@ const login = document.querySelectorAll('.login-click');
 const popup = document.querySelector('.pop-up');
 const popupcontent = document.querySelector('.pop-up-content');
 const signup = document.querySelector('.sign-up');
-const register = document.querySelector('.register');
+const register = document.querySelectorAll('.register');
 const form = document.querySelectorAll('.form-sabmit');
-const signIn = document.querySelector('.sign-in');
+const signIn = document.querySelectorAll('.sign-in');
 const input = document.querySelectorAll('.input');
   
 for(let i = 0; i < login.length; i++) {
@@ -49,16 +49,27 @@ popup.addEventListener('click', event => {
         popup.classList.toggle('pop-up-active');
     };
 });
-register.addEventListener('click', () => {
-    signup.classList.add('sign-up-active');
-    popupcontent.classList.add('pop-up-non-active');
-});
-signIn.addEventListener('click', () => {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    alert(email.value + " " + password.value);
-    
-});
+for(let i = 0; i < register.length; i++) {
+    if( i < register.length -1) {
+    register[i].addEventListener('click', () => {
+        signup.classList.add('sign-up-active');
+        popupcontent.classList.add('pop-up-non-active');
+    });
+    } else {
+        register[i].addEventListener('click', () => {
+            signup.classList.remove('sign-up-active');
+            popupcontent.classList.remove('pop-up-non-active');
+    });
+    }
+}    
+
+for(let i = 0; i < signIn.length; i++) {
+    signIn[i].addEventListener('click', () => {
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        alert(email.value + " " + password.value);    
+    });    
+}
 
   // slider
 
