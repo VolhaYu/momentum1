@@ -27,7 +27,9 @@ function getTimeOfDay() {  //функция которая передает вр
 };
 getTimeOfDay();
 
-function showGreeting() { // приветствие
+  // приветствие
+
+function showGreeting() {     
     const timeOfDay = getTimeOfDay();
     greeting.textContent = `Good ${timeOfDay}`;
 };
@@ -71,11 +73,11 @@ function setBg() {  //случайное изображение
     const timeOfDay = getTimeOfDay();
     let bgNum = getRandomNum(1,20);
     let randomNum = bgNum.toString().padStart(2, '0');
-    const img = new Image();
+    const img = new Image();  
     img.src = `https://raw.githubusercontent.com/VolhaYu/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`;
-    img.onload = () => {
+    img.onload = () => {  // чтобы изображение сначала догрузилось, а потом отображалось
         body.style.backgroundImage = `url(${img.src})`;
-      }
+    }
 
 }
 setBg();
@@ -84,7 +86,7 @@ const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
 let randomNum;
 
-function getSlideNext() {
+function getSlideNext() {  // перелистывание изобр-ий по порядку вперед
     setBg(); 
     randomNum = 0;
     if(randomNum == 20) {
@@ -93,7 +95,7 @@ function getSlideNext() {
         randomNum++; 
     }  
 }
-function getSlidePrev() {
+function getSlidePrev() {  // назад
     setBg(); 
     if(randomNum == 1) {
         randomNum = 20;
@@ -101,8 +103,51 @@ function getSlidePrev() {
         randomNum--; 
     }    
 }
-slidePrev.addEventListener('click', getSlidePrev);
+slidePrev.addEventListener('click', getSlidePrev);  //вызов при клике на стрелки
 slideNext.addEventListener('click', getSlideNext);
 
+  //виджет погоды
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity');
+const weatherError = document.querySelector('.weather-error');
 
-console.log();
+async function getWaeter() {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=ecea04712645dfb0bce29087590fddfd&units=metric`;
+    const res = await fetch(url);
+    const data = await res.json();
+    try {
+        weatherIcon.className = 'weather-icon owf';
+        weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+        temperature.textContent = `${Math.round(data.main.temp)}°C`;
+        weatherDescription.textContent = data.weather[0].description;
+        wind.textContent = `скорость ветра: ${Math.round(data.wind.speed)} м/с`;
+        humidity.textContent = `влажность: ${Math.round(data.main.humidity)}%`;
+        weatherError.textContent = weatherError.value;
+    }
+    catch {
+        weatherError.textContent = `Error! Nothing to geocode for ''!`;
+        temperature.textContent = temperature.value;
+        weatherDescription.textContent = weatherDescription.value;
+        wind.textContent = wind.value;
+        humidity.textContent = humidity.value;
+    }
+  }
+getWaeter();
+const city = document.querySelector('.city'); // погода для определенного города
+city.addEventListener('change', getWaeter);
+function setLocalStorageCity() { 
+    localStorage.setItem('city', city.value);
+    city.value = 'Минск';
+    getWaeter();
+  }
+  window.addEventListener('beforeunload', setLocalStorageCity);
+  function getLocalStorageCity() {
+    if(localStorage.getItem('city')) {
+        city.value = localStorage.getItem('city');
+    }
+    getWaeter();
+  }
+  window.addEventListener('load', getLocalStorageCity);
