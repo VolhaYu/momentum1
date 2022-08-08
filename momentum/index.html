@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <div class="player">
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+      </div>
+      <ul class="play-list">
+        <li class="play-item">Summer Wind</li>
+        <li class="play-item">River Flows In You</li>
+        <li class="play-item">Ennio Morricone</li>
+        <li class="play-item">Aqua Caelestis</li>
+      </ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" placeholder="[Enter city]"/>
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"> Good evening</span>
+      <input type="text" class="name" placeholder="[Enter name]"/>
+    </div>
+  </main>
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote">"Peace cannot be kept by force. It can only be achieved by understanding."</div>
+      <div class="author">Albert Einstein</div>
+    </div>
+    <div class="links-settings">
+      <div class="settings"> 
+        <ul> <img src="assets/svg/settings.svg" alt="settings" width="30">
+          <!-- <li></li>
+          <li></li>
+          <li></li> -->
+        </ul>
+      </div>
+      <div class="links">
+        <a href="https://github.com/VolhaYu"><img src="assets/svg/github.svg" alt="github" width="20"></a>
+        <a href="https://rs.school/js/"><img src="https://rs.school/images/rs_school_js.svg" alt="rs-school" width="40"></a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/index.js"></script>
+</body>
+</html>
