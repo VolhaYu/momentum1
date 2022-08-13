@@ -51,6 +51,9 @@ body {
   cursor: pointer;
   transition: .3s;
 }
+.active {
+  color: coral;
+}
 
 .play-item:hover {
   opacity: 1;

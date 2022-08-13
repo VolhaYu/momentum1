@@ -62,7 +62,6 @@ function setLocalStorage() {
     //  слайдер изображений
 const body = document.querySelector('body');
 
-
 function getRandomNum(min, max) {  //рандомное число от 1 до 20 включительно
     min = Math.ceil(min);
     max = Math.floor(max);    
@@ -78,7 +77,6 @@ function setBg() {  //случайное изображение
     img.onload = () => {  // чтобы изображение сначала догрузилось, а потом отображалось
         body.style.backgroundImage = `url(${img.src})`;
     }
-
 }
 setBg();
 
@@ -90,7 +88,7 @@ function getSlideNext() {  // перелистывание изобр-ий по 
     setBg(); 
     randomNum = 0;
     if(randomNum == 20) {
-        randomNum = 01;
+        randomNum = 1;
     } else {
         randomNum++; 
     }  
@@ -135,12 +133,11 @@ async function getWaeter() {
         humidity.textContent = humidity.value;
     }
   }
-getWaeter();
 const city = document.querySelector('.city'); // погода для определенного города
 city.addEventListener('change', getWaeter);
-function setLocalStorageCity() { 
+
+function setLocalStorageCity() { //сохранение города после обновления
     localStorage.setItem('city', city.value);
-    city.value = 'Минск';
     getWaeter();
   }
   window.addEventListener('beforeunload', setLocalStorageCity);
@@ -151,3 +148,103 @@ function setLocalStorageCity() {
     getWaeter();
   }
   window.addEventListener('load', getLocalStorageCity);
+
+  //цитата дня
+const changeQuote = document.querySelector('.change-quote');
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+
+async function getQuotes() {  
+    const quotes = 'data.json';
+    const res = await fetch(quotes);
+    const data = await res.json();
+    let randomQ = Math.floor(Math.random() * data.length)
+    const dataValue = data[randomQ];
+    if(randomQ === dataValue) {
+        randomQ + 1;
+    }
+    quote.textContent = `${dataValue.text}`;
+    author.textContent = `${dataValue.author}`;
+}
+getQuotes();
+changeQuote.addEventListener('click', getQuotes);
+
+//аудиоплеер
+
+const prevPlay = document.querySelector('.play-prev');
+const play = document.querySelector('.play');
+const nextPlay = document.querySelector('.play-next');
+let playItem = document.querySelectorAll('.play-item');
+let isPlay = false; //переменная флаг(м/б false или true)
+let playNum = 0; // номер трека(первый по индексу)
+import playList from "./playList.js";
+
+const audio = new Audio(); //создание аудио
+
+function playAudio() {
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+  isPlay = true;
+  itemStyle();
+}
+
+function pauseAudio() {
+    isPlay = false;
+    audio.pause();
+  }
+
+function playPause() {  // включение - выключение трека
+    if(isPlay === true) {
+        pauseAudio();
+
+    }else {
+        playAudio();
+    }
+}
+play.addEventListener('click', () => { //смена картинки на паузу и обратно
+    play.classList.toggle('pause');
+    playPause();
+});
+
+function playNext() {
+    if(playNum === 3) {  //переключение песен по кругу
+        playNum = 0;
+    }else {
+        playNum++;
+    }
+    playAudio();
+    console.log(playNum);
+}
+audio.addEventListener('ended', playNext);
+
+function playPrev() {
+    if(playNum === 0) {
+        playNum = 3;
+    }else {
+        playNum--;
+    }
+    playAudio();
+}
+nextPlay.addEventListener('click', () =>{ //при клике на на след трек в право
+    play.classList.add('pause');
+    playAudio()
+    playNext();
+});
+prevPlay.addEventListener('click', () => {  //влево
+    play.classList.add('pause');
+    playAudio();
+    playPrev();
+});
+function itemStyle() { // выделение трека кот играет
+    for(let item of playItem) {
+        item.classList.remove('active'); 
+    }
+    playItem[playNum].classList.add('active'); 
+};
+
+
+
+
+
+  

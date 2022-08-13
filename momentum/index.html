@@ -17,14 +17,14 @@
         <button class="play-next player-icon"></button>
       </div>
       <ul class="play-list">
-        <li class="play-item">Summer Wind</li>
-        <li class="play-item">River Flows In You</li>
-        <li class="play-item">Ennio Morricone</li>
-        <li class="play-item">Aqua Caelestis</li>
+        <li class="play-item item0">Summer Wind</li>
+        <li class="play-item item1">River Flows In You</li>
+        <li class="play-item item2">Ennio Morricone</li>
+        <li class="play-item item3">Aqua Caelestis</li>
       </ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" placeholder="[Enter city]"/>
+      <input type="text" class="city" placeholder="[Enter city]" value="Минск"/>
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -50,8 +50,8 @@
   <footer class="footer">
     <button class="change-quote"></button>
     <div>
-      <div class="quote">"Peace cannot be kept by force. It can only be achieved by understanding."</div>
-      <div class="author">Albert Einstein</div>
+      <div class="quote"></div>
+      <div class="author"></div>
     </div>
     <div class="links-settings">
       <div class="settings"> 
@@ -67,6 +67,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/index.js"></script>
+  <script type="module" src="js/playList.js"></script>
+  <script type="module" src="js/index.js"></script>
 </body>
 </html>
