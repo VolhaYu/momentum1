@@ -61,45 +61,45 @@ function setLocalStorage() {
 
     //  слайдер изображений
 const body = document.querySelector('body');
+const slidePrev = document.querySelector('.slide-prev');
+const slideNext = document.querySelector('.slide-next');
 
 function getRandomNum(min, max) {  //рандомное число от 1 до 20 включительно
     min = Math.ceil(min);
     max = Math.floor(max);    
     return (Math.floor(Math.random() * (max - min + 1)) + min);
   }
+let bgNum = getRandomNum(1,20);
 
 function setBg() {  //случайное изображение
     const timeOfDay = getTimeOfDay();
-    let bgNum = getRandomNum(1,20);
-    let randomNum = bgNum.toString().padStart(2, '0');
+    let randomNum = bgNum.toString().padStart(2, "0");
     const img = new Image();  
     img.src = `https://raw.githubusercontent.com/VolhaYu/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`;
     img.onload = () => {  // чтобы изображение сначала догрузилось, а потом отображалось
         body.style.backgroundImage = `url(${img.src})`;
     }
+    console.log(randomNum);
 }
 setBg();
 
-const slidePrev = document.querySelector('.slide-prev');
-const slideNext = document.querySelector('.slide-next');
-let randomNum;
-
 function getSlideNext() {  // перелистывание изобр-ий по порядку вперед
-    setBg(); 
-    randomNum = 0;
-    if(randomNum == 20) {
-        randomNum = 1;
+    if(bgNum === 20) {
+        bgNum = 1;
     } else {
-        randomNum++; 
-    }  
+        bgNum++; 
+    }; 
+    setBg();
+    console.log(bgNum); 
 }
-function getSlidePrev() {  // назад
-    setBg(); 
-    if(randomNum == 1) {
-        randomNum = 20;
+
+function getSlidePrev() {  // назад 
+    if(bgNum === 1) {
+        bgNum = 20;
     } else {
-        randomNum--; 
-    }    
+        bgNum--; 
+    }  
+    setBg();
 }
 slidePrev.addEventListener('click', getSlidePrev);  //вызов при клике на стрелки
 slideNext.addEventListener('click', getSlideNext);
