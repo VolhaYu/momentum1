@@ -31,7 +31,11 @@ getTimeOfDay();
 
 function showGreeting() {     
     const timeOfDay = getTimeOfDay();
-    greeting.textContent = `Good ${timeOfDay}`;
+    let greetingTranslation = {
+        en: `Good ${timeOfDay}`,
+        ru: `Привет` 
+    };
+    greeting.textContent = greetingTranslation.en;
 };
 //    время
 
@@ -61,47 +65,44 @@ function setLocalStorage() {
 
     //  слайдер изображений
 const body = document.querySelector('body');
-
+const slidePrev = document.querySelector('.slide-prev');
+const slideNext = document.querySelector('.slide-next');
 
 function getRandomNum(min, max) {  //рандомное число от 1 до 20 включительно
     min = Math.ceil(min);
     max = Math.floor(max);    
     return (Math.floor(Math.random() * (max - min + 1)) + min);
   }
+let bgNum = getRandomNum(1,20);
 
 function setBg() {  //случайное изображение
     const timeOfDay = getTimeOfDay();
-    let bgNum = getRandomNum(1,20);
-    let randomNum = bgNum.toString().padStart(2, '0');
+    let randomNum = bgNum.toString().padStart(2, "0");
     const img = new Image();  
     img.src = `https://raw.githubusercontent.com/VolhaYu/stage1-tasks/assets/images/${timeOfDay}/${randomNum}.jpg`;
     img.onload = () => {  // чтобы изображение сначала догрузилось, а потом отображалось
         body.style.backgroundImage = `url(${img.src})`;
     }
-
 }
 setBg();
 
-const slidePrev = document.querySelector('.slide-prev');
-const slideNext = document.querySelector('.slide-next');
-let randomNum;
-
 function getSlideNext() {  // перелистывание изобр-ий по порядку вперед
-    setBg(); 
-    randomNum = 0;
-    if(randomNum == 20) {
-        randomNum = 01;
+    if(bgNum === 20) {
+        bgNum = 1;
     } else {
-        randomNum++; 
-    }  
+        bgNum++; 
+    }; 
+    setBg();
+    console.log(bgNum); 
 }
-function getSlidePrev() {  // назад
-    setBg(); 
-    if(randomNum == 1) {
-        randomNum = 20;
+
+function getSlidePrev() {  // назад 
+    if(bgNum === 1) {
+        bgNum = 20;
     } else {
-        randomNum--; 
-    }    
+        bgNum--; 
+    }  
+    setBg();
 }
 slidePrev.addEventListener('click', getSlidePrev);  //вызов при клике на стрелки
 slideNext.addEventListener('click', getSlideNext);
@@ -115,7 +116,7 @@ const humidity = document.querySelector('.humidity');
 const weatherError = document.querySelector('.weather-error');
 
 async function getWaeter() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=ecea04712645dfb0bce29087590fddfd&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=ecea04712645dfb0bce29087590fddfd&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     try {
@@ -123,8 +124,8 @@ async function getWaeter() {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `скорость ветра: ${Math.round(data.wind.speed)} м/с`;
-        humidity.textContent = `влажность: ${Math.round(data.main.humidity)}%`;
+        wind.textContent = `wind speed: ${Math.round(data.wind.speed)} m/s`;
+        humidity.textContent = `humidity: ${Math.round(data.main.humidity)}%`;
         weatherError.textContent = weatherError.value;
     }
     catch {
@@ -135,12 +136,11 @@ async function getWaeter() {
         humidity.textContent = humidity.value;
     }
   }
-getWaeter();
 const city = document.querySelector('.city'); // погода для определенного города
 city.addEventListener('change', getWaeter);
-function setLocalStorageCity() { 
+
+function setLocalStorageCity() { //сохранение города после обновления
     localStorage.setItem('city', city.value);
-    city.value = 'Минск';
     getWaeter();
   }
   window.addEventListener('beforeunload', setLocalStorageCity);
@@ -151,3 +151,193 @@ function setLocalStorageCity() {
     getWaeter();
   }
   window.addEventListener('load', getLocalStorageCity);
+
+  //цитата дня
+const changeQuote = document.querySelector('.change-quote');
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+
+async function getQuotes() {  
+    const quotes = 'data.json';
+    const res = await fetch(quotes);
+    const data = await res.json();
+    let randomQ = Math.floor(Math.random() * data.length)
+    const dataValue = data[randomQ];
+    if(randomQ === dataValue) {
+        randomQ + 1;
+    }
+    quote.textContent = `${dataValue.text}`;
+    author.textContent = `${dataValue.author}`;
+}
+getQuotes();
+changeQuote.addEventListener('click', getQuotes);
+
+//аудиоплеер
+
+const prevPlay = document.querySelector('.play-prev');
+const play = document.querySelector('.play');
+const nextPlay = document.querySelector('.play-next');
+let playItem = document.querySelectorAll('.play-item');
+let isPlay = false; //переменная флаг(м/б false или true)
+let playNum = 0; // номер трека(первый по индексу)
+import playList from "./playList.js";
+
+const audio = new Audio(); //создание аудио
+
+function playAudio() {
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+  isPlay = true;
+  itemStyle();
+}
+
+function pauseAudio() {
+    isPlay = false;
+    audio.pause();
+  }
+
+function playPause() {  // включение - выключение трека
+    if(isPlay === true) {
+        pauseAudio();
+
+    }else {
+        playAudio();
+    }
+}
+play.addEventListener('click', () => { //смена картинки на паузу и обратно
+    play.classList.toggle('pause');
+    playPause();
+});
+
+function playNext() {
+    if(playNum === 3) {  //переключение песен по кругу
+        playNum = 0;
+    }else {
+        playNum++;
+    }
+    playAudio();
+    console.log(playNum);
+}
+audio.addEventListener('ended', playNext);
+
+function playPrev() {
+    if(playNum === 0) {
+        playNum = 3;
+    }else {
+        playNum--;
+    }
+    playAudio();
+}
+nextPlay.addEventListener('click', () =>{ //при клике на на след трек в право
+    play.classList.add('pause');
+    playAudio()
+    playNext();
+});
+prevPlay.addEventListener('click', () => {  //влево
+    play.classList.add('pause');
+    playAudio();
+    playPrev();
+});
+function itemStyle() { // выделение трека кот играет
+    for(let item of playItem) {
+        item.classList.remove('active'); 
+    }
+    playItem[playNum].classList.add('active'); 
+};
+
+//настройки приложения
+const setting = document.querySelector('.setting');
+const form = document.querySelector('.form');
+const windowClose = document.querySelector('.window-close');
+
+setting.addEventListener('click', () => { //открыть настройки
+    form.classList.toggle('form-active');
+});
+windowClose.addEventListener('click', (e) => { //закрыть настройки при клике на крестик
+    form.classList.remove('form-active');
+    e.stopPropagation();
+});
+
+// спрятать/показать блок
+const hideTime = document.querySelector('.hide-time');
+const hideDate = document.querySelector('.hide-date');
+const hideGreeting = document.querySelector('.hide-greetings');
+const hidePlayer = document.querySelector('.hide-player');
+const hideWeather = document.querySelector('.hide-weather');
+const hideQuote = document.querySelector('.hide-quote');
+const labelClick = document.querySelectorAll('.label-click');
+const label = document.querySelectorAll('.label');
+const input = document.querySelectorAll('.input');
+
+function hideBlock () {
+    for(let i = 0; i < labelClick.length; i++) {
+        if(i === 0) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideTime.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideTime.classList.toggle('hide-block');                    
+                }
+                e.stopPropagation();
+            });            
+        }
+        if(i === 1) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideDate.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideDate.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 2) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideGreeting.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideGreeting.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 3) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideQuote.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideQuote.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 4) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideWeather.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideWeather.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 5) {
+            labelClick[i].addEventListener('click', (e) => {
+                hidePlayer.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hidePlayer.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+    }
+}
+hideBlock();
+
+
+
+
+
+

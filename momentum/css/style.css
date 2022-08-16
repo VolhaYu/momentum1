@@ -29,7 +29,14 @@ body {
   min-height: 220px;  
   padding: 20px;
 }
-
+.hide-block {
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: 0.3s ease-out;
+}
+.player, .weather, .time, .date, .greeting, .quote {
+  transition: 0.3s ease-out;
+}
 .player-controls {
   display: flex;
   align-items: center;
@@ -50,6 +57,9 @@ body {
   opacity: .8;
   cursor: pointer;
   transition: .3s;
+}
+.active {
+  color: coral;
 }
 
 .play-item:hover {
@@ -271,13 +281,62 @@ body {
   width: 30px;
   position: absolute;
   left: 20px;
-  bottom: -30px;
+}
+.settings:hover {
+  cursor: pointer;
+}
+.form {
+  width: 250px;
+  height: 320px;
+  background: rgba(105,105,105,0.7);
+  z-index: 100;
+  bottom: 35px;
+  left: -300px;
+  position: absolute;
+  transition-duration: 1s;
+}
+.form-active {
+  left: 0;
+  transition-duration: 1s;
+}
+.window-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+}
+.line {
+  width: 15px;
+    height: 1px;
+    display: block;
+    margin: 7.5px auto 0;
+    background: #FFFFFF;
+    position: absolute;
+    left: 24.83%;
+    right: 25.17%;
+    top: 25.14%;
+}
+.line1 {
+  transform: rotate(45deg);
+}
+.line2 {
+  transform: rotate(-45deg);
+}
+.label {
+  display: block;
+  margin-top: 10px;
+  
+  text-align: center;
+  font-weight: 400;
+}
+.label-text {
+  padding-left: 15px;
+  text-align: left;
 }
 .links {
   width: 80px;
   position: absolute;
   right: 20px;
-  bottom: -30px;
 }
 
 @media (max-width: 768px) {
