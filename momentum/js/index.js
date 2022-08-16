@@ -31,7 +31,11 @@ getTimeOfDay();
 
 function showGreeting() {     
     const timeOfDay = getTimeOfDay();
-    greeting.textContent = `Good ${timeOfDay}`;
+    let greetingTranslation = {
+        en: `Good ${timeOfDay}`,
+        ru: `Привет` 
+    };
+    greeting.textContent = greetingTranslation.en;
 };
 //    время
 
@@ -79,7 +83,6 @@ function setBg() {  //случайное изображение
     img.onload = () => {  // чтобы изображение сначала догрузилось, а потом отображалось
         body.style.backgroundImage = `url(${img.src})`;
     }
-    console.log(randomNum);
 }
 setBg();
 
@@ -113,7 +116,7 @@ const humidity = document.querySelector('.humidity');
 const weatherError = document.querySelector('.weather-error');
 
 async function getWaeter() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=ecea04712645dfb0bce29087590fddfd&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=ecea04712645dfb0bce29087590fddfd&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     try {
@@ -121,8 +124,8 @@ async function getWaeter() {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `скорость ветра: ${Math.round(data.wind.speed)} м/с`;
-        humidity.textContent = `влажность: ${Math.round(data.main.humidity)}%`;
+        wind.textContent = `wind speed: ${Math.round(data.wind.speed)} m/s`;
+        humidity.textContent = `humidity: ${Math.round(data.main.humidity)}%`;
         weatherError.textContent = weatherError.value;
     }
     catch {
@@ -243,8 +246,98 @@ function itemStyle() { // выделение трека кот играет
     playItem[playNum].classList.add('active'); 
 };
 
+//настройки приложения
+const setting = document.querySelector('.setting');
+const form = document.querySelector('.form');
+const windowClose = document.querySelector('.window-close');
+
+setting.addEventListener('click', () => { //открыть настройки
+    form.classList.toggle('form-active');
+});
+windowClose.addEventListener('click', (e) => { //закрыть настройки при клике на крестик
+    form.classList.remove('form-active');
+    e.stopPropagation();
+});
+
+// спрятать/показать блок
+const hideTime = document.querySelector('.hide-time');
+const hideDate = document.querySelector('.hide-date');
+const hideGreeting = document.querySelector('.hide-greetings');
+const hidePlayer = document.querySelector('.hide-player');
+const hideWeather = document.querySelector('.hide-weather');
+const hideQuote = document.querySelector('.hide-quote');
+const labelClick = document.querySelectorAll('.label-click');
+const label = document.querySelectorAll('.label');
+const input = document.querySelectorAll('.input');
+
+function hideBlock () {
+    for(let i = 0; i < labelClick.length; i++) {
+        if(i === 0) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideTime.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideTime.classList.toggle('hide-block');                    
+                }
+                e.stopPropagation();
+            });            
+        }
+        if(i === 1) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideDate.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideDate.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 2) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideGreeting.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideGreeting.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 3) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideQuote.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideQuote.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 4) {
+            labelClick[i].addEventListener('click', (e) => {
+                hideWeather.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hideWeather.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+        if(i === 5) {
+            labelClick[i].addEventListener('click', (e) => {
+                hidePlayer.classList.toggle('hide-block');
+                let target = e.target;
+                if(target === labelClick[i]) {
+                    hidePlayer.classList.toggle('hide-block');
+                }
+                e.stopPropagation(); 
+            });
+        }
+    }
+}
+hideBlock();
 
 
 
 
-  
+
+

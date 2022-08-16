@@ -29,7 +29,14 @@ body {
   min-height: 220px;  
   padding: 20px;
 }
-
+.hide-block {
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: 0.3s ease-out;
+}
+.player, .weather, .time, .date, .greeting, .quote {
+  transition: 0.3s ease-out;
+}
 .player-controls {
   display: flex;
   align-items: center;
@@ -284,8 +291,12 @@ body {
   background: rgba(105,105,105,0.7);
   z-index: 100;
   bottom: 35px;
-  left: 0;
+  left: -300px;
   position: absolute;
+  transition-duration: 1s;
+}
+.form-active {
+  left: 0;
   transition-duration: 1s;
 }
 .window-close {

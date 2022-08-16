@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="player">
+    <div class="player hide-player">
       <div class="player-controls">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
@@ -23,8 +23,8 @@
         <li class="play-item">Aqua Caelestis</li>
       </ul>
     </div>
-    <div class="weather">
-      <input type="text" class="city" placeholder="[Enter city]" value="Минск"/>
+    <div class="weather hide-weather">
+      <input type="text" class="city" placeholder="[Enter city]" value="Minsk"/>
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -40,59 +40,59 @@
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
     </div>
-    <time class="time"></time>
-    <date class="date"></date>
-    <div class="greeting-container">
+    <time class="time hide-time"></time>
+    <date class="date hide-date"></date>
+    <div class="greeting-container hide-greetings">
       <span class="greeting"> Good evening</span>
       <input type="text" class="name" placeholder="[Enter name]"/>
     </div>
   </main>
   <footer class="footer">
     <button class="change-quote"></button>
-    <div>
+    <div class="hide-quote">
       <div class="quote"></div>
       <div class="author"></div>
     </div>
     <div class="links-settings">
       <div class="settings"> 
-        <img src="assets/svg/settings.svg" alt="settings" width="30">
+        <img class="setting" src="assets/svg/settings.svg" alt="settings" width="30">
         <form action="#" class="form">
           <div class="window-close">
             <span class="line line1"></span>
             <span class="line line2"></span>
           </div>
           <label class="label label-text"><b>Language:</b>
-            <input type="radio" name="Language" checked> en
+            <input class="input lang" type="radio" name="Language" checked> en
           </label>
           <label class="label">
-            <input  type="radio" name="Language" > ru
+            <input class="input lang" type="radio" name="Language"> ru
           </label>
           <label class="label label-text"><b>PhotoSource:</b>
-            <input type="radio" name="slider" checked> 'GitHub'
+            <input class="input" type="radio" name="slider" checked> 'GitHub'
           </label>
           <label class="label">
-            <input type="radio" name="slider" > 'Unsplash API'
+            <input class="input" type="radio" name="slider"> 'Unsplash API'
           </label>
           <label class="label">
-            <input  type="radio" name="slider" > 'Flickr API'
+            <input class="input" type="radio" name="slider"> 'Flickr API'
           </label>
-          <label class="label label-text"><b>Hide/show block:</b>
-            <input type="checkbox" name="bloks" checked> 'Time'
+          <label class="label label-text label-click"><b>Hide/show block:</b>
+            <input class="input" type="checkbox" name="bloks" checked> 'Time'
           </label>
-          <label class="label">
-            <input type="checkbox" name="bloks" checked> 'Data'
+          <label class="label label-click">
+            <input class="input" type="checkbox" name="bloks" checked> 'Date'
           </label>
-          <label class="label">
-            <input type="checkbox" name="bloks" checked> 'Greeting'
+          <label class="label label-click">
+            <input class="input" type="checkbox" name="bloks" checked> 'Greeting'
           </label>
-          <label class="label">
-            <input type="checkbox" name="bloks" checked> 'Quote'
+          <label class="label label-click">
+            <input class="input" type="checkbox" name="bloks" checked> 'Quote'
           </label>
-          <label class="label">
-            <input type="checkbox" name="bloks" checked> 'Weather'
+          <label class="label label-click">
+            <input class="input" type="checkbox" name="bloks" checked> 'Weather'
           </label>
-          <label class="label">
-            <input type="checkbox" name="bloks" checked> 'Musik'
+          <label class="label label-click">
+            <input class="input" type="checkbox" name="bloks" checked> 'Musik'
           </label>
           
         </form>
