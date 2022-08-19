@@ -231,7 +231,7 @@ function playPrev() {
 }
 nextPlay.addEventListener('click', () =>{ //при клике на на след трек в право
     play.classList.add('pause');
-    playAudio()
+    playAudio();
     playNext();
 });
 prevPlay.addEventListener('click', () => {  //влево

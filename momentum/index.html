@@ -15,12 +15,32 @@
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
+        <button class="play-volume player-icon"></button>
+        <input type="range" class="volume-range" min="0" max="100">
+      </div>
+      <div class="progress-bar">
+        <p class="name-song">Summer Wind</p>
+        <div class="span">
+          <span class="current-time">0:00</span>
+          <span class="track-time">3:29</span>
+        </div>
+        <input type="range" class="progress-range" min="0" max="100">
+
+
       </div>
       <ul class="play-list">
-        <li class="play-item">Summer Wind</li>
-        <li class="play-item">River Flows In You</li>
-        <li class="play-item">Ennio Morricone</li>
-        <li class="play-item">Aqua Caelestis</li>
+        <li class="play-item">Summer Wind
+          <button class="play player-icon play-track"></button>
+        </li>
+        <li class="play-item">River Flows In You
+          <button class="play player-icon play-track"></button>
+        </li>
+        <li class="play-item">Ennio Morricone
+          <button class="play player-icon play-track"></button>
+        </li>
+        <li class="play-item">Aqua Caelestis
+          <button class="play player-icon play-track"></button>
+        </li>
       </ul>
     </div>
     <div class="weather hide-weather">
