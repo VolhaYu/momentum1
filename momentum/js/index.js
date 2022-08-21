@@ -182,6 +182,14 @@ let isPlay = false; //переменная флаг(м/б false или true)
 let playNum = 0; // номер трека(первый по индексу)
 import playList from "./playList.js";
 
+const volume = document.querySelector('.play-volume'); // для продвтнутого плеера
+const volumeRange = document.querySelector('.volume-range');
+const nameSong = document.querySelector('.name-song');
+const currentTime = document.querySelector('.current-time');
+const trackTime = document.querySelector('.track-time');
+const progressRange = document.querySelector('.progress-range');
+const playTrack = document.querySelectorAll('.play-track');
+
 const audio = new Audio(); //создание аудио
 
 function playAudio() {
@@ -189,8 +197,22 @@ function playAudio() {
   audio.currentTime = 0;
   audio.play();
   isPlay = true;
+  nameSong.textContent = playList[playNum].title;
+  trackTime .textContent = playList[playNum].duration;
+  audio.volume = 0.2;
   itemStyle();
-}
+};
+  
+function trackClick() {  // кнопка play возле названия
+    for(let i = 0; i < playTrack.length; i++) {
+        playTrack[i].addEventListener('click',() =>{
+            playTrack[i].classList.toggle('pause');
+            play.classList.toggle('pause');
+        })
+    }
+
+}; 
+trackClick();
 
 function pauseAudio() {
     isPlay = false;
@@ -217,7 +239,6 @@ function playNext() {
         playNum++;
     }
     playAudio();
-    console.log(playNum);
 }
 audio.addEventListener('ended', playNext);
 
@@ -245,7 +266,51 @@ function itemStyle() { // выделение трека кот играет
     }
     playItem[playNum].classList.add('active'); 
 };
+let isMute = false;
+function volumeOff() {    
+    volume.classList.toggle('volume-off');
+    audio.muted = true;
+    isMute = true;
+    volumeRange.value = 0;
+}
+function volumeUp() {
+    volume.classList.toggle('volume-off');
+    audio.muted = false;
+    isMute = false;
+    volumeRange.value = 50;
+}
+function muteVolume() {   // вкл, выкл звука
+    if(!isMute) {
+        volumeOff();
+    }else {
+        volumeUp();
+    }
+}
+function changeVolume() { //изменение громкости
+    let vol = volumeRange.value;
+    audio.volume = vol / 100;
+}
+volumeRange.addEventListener('input', changeVolume);
+volume.addEventListener('click', muteVolume);
 
+function progressBar() {    //движение ползунка в прогресс баре
+    progressRange.max = audio.duration;
+    progressRange.value = audio.currentTime;
+    currentTime.innerHTML = (formatTime(Math.floor(audio.currentTime)));
+};
+function formatTime(seconds) {  
+    let min = Math.floor((seconds / 60));
+    let sec = Math.floor(seconds - (min * 60));
+    if (sec < 10){ 
+        sec  = `0${sec}`;
+    };
+    return `${min}:${sec}`;
+};
+setInterval(progressBar, 500);
+function changeProgressBar() {  // счет врмени от начала проигрывания
+    currentTime.textContent = progressRange.value;
+};
+changeProgressBar();
 //настройки приложения
 const setting = document.querySelector('.setting');
 const form = document.querySelector('.form');

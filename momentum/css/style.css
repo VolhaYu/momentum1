@@ -129,6 +129,9 @@ body {
 .play-volume {
   background-image: url("../assets/svg/volume-up.svg");
 }
+.volume-off {
+  background-image: url("../assets/svg/volume.svg");
+}
 .volume-range {
   width: 80px;
   background: gray;
