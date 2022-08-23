@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url(assets/home.png);
+    background-size: cover;
+}
+.container {
+    width: 100%;
+    padding: 10px;
+}
+.ancient {
+    display: flex;
+    justify-content: space-between;
+}
+.img {
+    width: 250px;
+}
+.img:hover {
+    cursor: pointer;
+    border: 2px dashed red;
+}
+.difficulty {
+    display: flex;
+    justify-content: center; 
+    margin-top: 50px;
+    align-items: center;
+}
+.button {
+    margin-right: 15px;
+    width: 115px;
+    height: 35px;
+    border-radius: 10px;
+    background: gray;
+    border-style: none;
+}
+.button:hover {
+    cursor: pointer;
+    font-weight: 700;
+}
+.shuffling-button {
+    width: 200px;
+    height: 80px;
+    border: 2px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px auto 0;
+    font-size: 26px;
+    font-weight: 700;
+    background: gray;
+    border-radius: 10px;
+    display: none;
+}
+.shuffling-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.shuffling-cards {
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.img-cards {
+    width: 150px;
+}
+.img-cards:hover {
+    cursor: pointer;
+}
