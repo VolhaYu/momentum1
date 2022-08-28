@@ -27,7 +27,14 @@ function choiceAncient() {
             };
             if(ancient[i] === ancient[1]) {
                 cthulhu();
-            };          
+            };
+            if(ancient[i] === ancient[2]) {
+                iogSothoth();
+            };
+            if(ancient[i] === ancient[3]) {
+                cthulhu();
+            };
+                      
         });
     };
 }
@@ -50,7 +57,6 @@ level();
 shufflingButton.addEventListener('click', () => { 
     shufflingButton.classList.toggle('shuffling-button-active');
     shufflingCards.classList.toggle('shuffling-cards-active');
-    // randomCard();
 });
 
 const blueCard = ['blue/blue1', 'blue/blue2', 'blue/blue3', 'blue/blue4', 'blue/blue5', 'blue/blue6', 'blue/blue7', 'blue/blue8', 'blue/blue9', 'blue/blue10', 'blue/blue11', 'blue/blue12'];
@@ -215,7 +221,132 @@ stageThree = [];
     console.log(stageThree);
     console.log(stageTwo);
     console.log(stageOne);
-    randomCard();
+};
+
+function iogSothoth() {
+    //замешать 3 калоды карт по цветам
+ let deckGreen = [];
+
+ for(let i = 0; i < 5; i++) {
+    let a = getRandomArrayElement(greenCard);
+    if(!deckGreen.includes(a)) {
+        deckGreen.push(a);
+        let ind = greenCard.indexOf(a);
+        greenCard.splice(ind, 1);
+    };
+ };
+ console.log(deckGreen);
+
+ let deckBrown = [];
+
+ for(let i = 0; i < 9; i++) {
+    let a = getRandomArrayElement(brownCard);
+    if(!deckBrown.includes(a)) {
+        deckBrown.push(a);
+        let ind = brownCard.indexOf(a);
+        brownCard.splice(ind, 1);
+    };
+ }
+ console.log(deckBrown);
+
+ let deckBlue = [];
+
+for(let i = 0; i < 2; i++) {
+   let a = getRandomArrayElement(blueCard);
+   if(!deckBlue.includes(a)) {
+       deckBlue.push(a);
+       let ind = blueCard.indexOf(a);
+       blueCard.splice(ind, 1);
+   };
+}
+console.log(deckBlue);
+//замешать карты из разных калод по уровням
+
+// stageOne
+stageOne = [];
+for(let i = 0; i < 2; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageOne.includes(a)) {
+        stageOne.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };    
+ };
+ for(let i = 0; i < 1; i++) {
+    let a = getRandomArrayElement(deckBlue);
+    if(!stageOne.includes(a)) {
+        stageOne.push(a);
+        let ind = deckBlue.indexOf(a);
+        deckBlue.splice(ind, 1);
+    };
+ }
+ stage1[0].textContent = 0;
+ stage1[1].textContent = 2;
+ stage1[2].textContent = 1;
+ console.log(stageOne);
+
+//  stageTwo
+stageTwo = [];
+ for(let i = 0; i < 2; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stageTwo.push(getRandomArrayElement(deckBlue));
+ stage2[0].textContent = 2;
+ stage2[1].textContent = 3;
+ stage2[2].textContent = 1;
+ console.log(stageTwo);
+
+//  stageThree
+stageThree = [];
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 4; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stage3[0].textContent = 3;
+ stage3[1].textContent = 4;
+ stage3[2].textContent = 0;
+ console.log(stageThree);
+
+ // перемешала катры на всех уровнях
+
+ for(let i = 0; i < stageThree.length; i++) {
+   shuffle(stageThree)[i];
+
+ };
+ for(let i = 0; i < stageTwo.length; i++) {
+    shuffle(stageTwo)[i];
+ };
+ for(let i = 0; i < stageOne.length; i++) {
+    shuffle(stageOne)[i];
+ };
+    console.log(stageThree);
+    console.log(stageTwo);
+    console.log(stageOne); 
 };
 
 function cthulhu() {
@@ -261,143 +392,20 @@ console.log(deckBlue);
 stageOne = [];
 for(let i = 0; i < 2; i++) {
     let a = getRandomArrayElement(deckBrown);
-    let b = getRandomArrayElement(deckBlue);
     if(!stageOne.includes(a)) {
         stageOne.push(a);
         let ind = deckBrown.indexOf(a);
         deckBrown.splice(ind, 1);
-    };
-    if(!stageOne.includes(b)) {
-        stageOne.push(b);
+    };    
+ };
+ for(let i = 0; i < 2; i++) {
+    let a = getRandomArrayElement(deckBlue);
+    if(!stageOne.includes(a)) {
+        stageOne.push(a);
         let ind = deckBlue.indexOf(a);
         deckBlue.splice(ind, 1);
-    };
-    
- };
- stage1[0].textContent = 0;
- stage1[1].textContent = 2;
- stage1[2].textContent = 2;
- console.log(stageOne);
-
-//  stageTwo
-stageTwo = [];
- for(let i = 0; i < 1; i++) {
-    let a = getRandomArrayElement(deckGreen);
-    if(!stageTwo.includes(a)) {
-        stageTwo.push(a);
-        let ind = deckGreen.indexOf(a);
-        deckGreen.splice(ind, 1);
-    };
- };
- for(let i = 0; i < 3; i++) {
-    let a = getRandomArrayElement(deckBrown);
-    if(!stageTwo.includes(a)) {
-        stageTwo.push(a);
-        let ind = deckBrown.indexOf(a);
-        deckBrown.splice(ind, 1);
-    };
- };
- stage2[0].textContent = 1;
- stage2[1].textContent = 3;
- stage2[2].textContent = 0;
- console.log(stageTwo);
-
-//  stageThree
-stageThree = [];
- for(let i = 0; i < 3; i++) {
-    let a = getRandomArrayElement(deckGreen);
-    if(!stageThree.includes(a)) {
-        stageThree.push(a);
-        let ind = deckGreen.indexOf(a);
-        deckGreen.splice(ind, 1);
-    };
- };
- for(let i = 0; i < 4; i++) {
-    let a = getRandomArrayElement(deckBrown);
-    if(!stageThree.includes(a)) {
-        stageThree.push(a);
-        let ind = deckBrown.indexOf(a);
-        deckBrown.splice(ind, 1);
-    };
- };
- stage3[0].textContent = 3;
- stage3[1].textContent = 4;
- stage3[2].textContent = 0;
- console.log(stageThree);
-
- // перемешала катры на всех уровнях
-
- for(let i = 0; i < stageThree.length; i++) {
-   shuffle(stageThree)[i];
-
- };
- for(let i = 0; i < stageTwo.length; i++) {
-    shuffle(stageTwo)[i];
- };
- for(let i = 0; i < stageOne.length; i++) {
-    shuffle(stageOne)[i];
- };
-    console.log(stageThree);
-    console.log(stageTwo);
-    console.log(stageOne);
-    randomCard(); 
-};
-function iogSothoth() {
-    //замешать 3 калоды карт по цветам
- let deckGreen = [];
-
- for(let i = 0; i < 4; i++) {
-    let a = getRandomArrayElement(greenCard);
-    if(!deckGreen.includes(a)) {
-        deckGreen.push(a);
-        let ind = greenCard.indexOf(a);
-        greenCard.splice(ind, 1);
-    };
- };
- console.log(deckGreen);
-
- let deckBrown = [];
-
- for(let i = 0; i < 9; i++) {
-    let a = getRandomArrayElement(brownCard);
-    if(!deckBrown.includes(a)) {
-        deckBrown.push(a);
-        let ind = brownCard.indexOf(a);
-        brownCard.splice(ind, 1);
     };
  }
- console.log(deckBrown);
-
- let deckBlue = [];
-
-for(let i = 0; i < 2; i++) {
-   let a = getRandomArrayElement(blueCard);
-   if(!deckBlue.includes(a)) {
-       deckBlue.push(a);
-       let ind = blueCard.indexOf(a);
-       blueCard.splice(ind, 1);
-   };
-}
-console.log(deckBlue);
-//замешать карты из разных калод по уровням
-
-// stageOne
-stageOne = [];
-for(let i = 0; i < 2; i++) {
-    let a = getRandomArrayElement(deckBrown);
-    let b = getRandomArrayElement(deckBlue);
-    if(!stageOne.includes(a)) {
-        stageOne.push(a);
-        let ind = deckBrown.indexOf(a);
-        deckBrown.splice(ind, 1);
-    };
-    if(!stageOne.includes(b)) {
-        stageOne.push(b);
-        let ind = deckBlue.indexOf(a);
-        deckBlue.splice(ind, 1);
-    };
-    
- };
  stage1[0].textContent = 0;
  stage1[1].textContent = 2;
  stage1[2].textContent = 2;
@@ -463,12 +471,12 @@ stageThree = [];
  };
     console.log(stageThree);
     console.log(stageTwo);
-    console.log(stageOne);
-    randomCard(); 
-}
+    console.log(stageOne); 
+};
+
 // вывод карты
 function randomCard() {
-    let img = document.createElement('img');           
+    const img = document.createElement('img');           
     shirtCard.addEventListener('click', () => {
         img.src = `assets/MythicCards/${stageOne.pop() || stageTwo.pop() || stageThree.pop()}.png`;
         randomCards.appendChild(img);
@@ -479,6 +487,7 @@ function randomCard() {
         };    
     });
 };
+randomCard();
 
 function counter() { // счетчик карт
     // stage1[0].textContent
