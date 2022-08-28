@@ -51,13 +51,11 @@ const blueCard = ['blue/blue1', 'blue/blue2', 'blue/blue3', 'blue/blue4', 'blue/
 const brownCard = ['brown/brown1', 'brown/brown2', 'brown/brown3', 'brown/brown4', 'brown/brown5', 'brown/brown6', 'brown/brown7', 'brown/brown8', 'brown/brown9', 'brown/brown10', 'brown/brown11', 'brown/brown12', 'brown/brown13', 'brown/brown14', 'brown/brown15', 'brown/brown16', 'brown/brown17', 'brown/brown18', 'brown/brown19', 'brown/brown20', 'brown/brown21'];
 const greenCard = ['green/green1', 'green/green2', 'green/green3', 'green/green4', 'green/green5', 'green/green6', 'green/green7', 'green/green8', 'green/green9', 'green/green10', 'green/green11', 'green/green12', 'green/green13', 'green/green14', 'green/green15', 'green/green16', 'green/green17', 'green/green18'];
 
-//рандомное число
+//рандомный элемент массива
 
-function getRandomNum(min, max) {  
-    min = Math.ceil(min);
-    max = Math.floor(max);    
-    return (Math.floor(Math.random() * (max - min + 1)) + min);
-};
+function getRandomArrayElement(arr){
+    return arr[Math.floor(Math.random()*arr.length)]
+ };
 //перемешивание калоды
 
 const shuffle = (deck) => { 
@@ -78,133 +76,119 @@ function azathoth() {
  let deckGreen = [];
 
  for(let i = 0; i < 5; i++) {
-    let a = shuffle(greenCard)[i];
+    let a = getRandomArrayElement(greenCard);
     if(!deckGreen.includes(a)) {
         deckGreen.push(a);
-    } else {
-        const temp = shuffle(greenCard)[i];
-        shuffle(greenCard)[i] = greenCard[i];
-        greenCard[i] = temp;
-    }
+        let ind = greenCard.indexOf(a);
+        greenCard.splice(ind, 1);
+    };
  };
  console.log(deckGreen);
 
  let deckBrown = [];
 
  for(let i = 0; i < 9; i++) {
-    let a = shuffle(brownCard)[i];
+    let a = getRandomArrayElement(brownCard);
     if(!deckBrown.includes(a)) {
         deckBrown.push(a);
-    }else {
-        const temp = shuffle(brownCard)[i];
-        shuffle(brownCard)[i] = brownCard[i];
-        brownCard[i] = temp;
-    }
+        let ind = brownCard.indexOf(a);
+        brownCard.splice(ind, 1);
+    };
  }
  console.log(deckBrown);
 
  let deckBlue = [];
 
 for(let i = 0; i < 2; i++) {
-   let a = shuffle(blueCard)[i];
+   let a = getRandomArrayElement(blueCard);
    if(!deckBlue.includes(a)) {
        deckBlue.push(a);
-   }else {
-    const temp = blueCard[i];
-    blueCard[i] = shuffle(blueCard)[i];
-    shuffle(blueCard)[i] = temp;
-}
+       let ind = blueCard.indexOf(a);
+       blueCard.splice(ind, 1);
+   };
 }
 console.log(deckBlue);
 //замешать карты из разных калод по уровням
 
 // stageOne
 for(let i = 0; i < 2; i++) {
-    let a = shuffle(deckBrown)[i];
+    let a = getRandomArrayElement(deckBrown);
     if(!stageOne.includes(a)) {
         stageOne.push(a);
-    } else {
-        const temp = deckBrown[i];
-        deckBrown[i] = shuffle(deckBrown)[i];
-        shuffle(deckBrown)[i] = temp;
-    }
-    // stage1[1].textContent = (deckBrown[i]).length;
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+    
  };
-
  for(let i = 0; i < 1; i++) {
-    let a = shuffle(deckBlue)[i];
-    let b = shuffle(deckGreen)[i];
+    let a = getRandomArrayElement(deckBlue);
+    let b = getRandomArrayElement(deckGreen);
     if(!stageOne.includes(a)) {
         stageOne.push(a);
-    } else {
-        const temp = deckBlue[i];
-        deckBlue[i] = shuffle(deckBlue)[i];
-        shuffle(deckBlue)[i] = temp;
+        let ind = deckBlue.indexOf(a);
+        deckBlue.splice(ind, 1);
     };
     if(!stageOne.includes(b)) {
         stageOne.push(b);
-    } else {
-        const temp = deckGreen[i];
-        deckGreen[i] = shuffle(deckGreen)[i];
-        shuffle(deckGreen)[i] = temp;
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
     };
  };
+ stage1[0].textContent = 1;
+ stage1[1].textContent = 2;
+ stage1[2].textContent = 1;
  console.log(stageOne);
 
 //  stageTwo
  for(let i = 0; i < 2; i++) {
-    let a = shuffle(deckGreen)[i];
-    if(!stageTwo.includes(a && stageOne)) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageTwo.includes(a)) {
         stageTwo.push(a);
-    } else {
-        const temp = deckGreen[i];
-        deckGreen[i] = shuffle(deckGreen)[i];
-        shuffle(deckGreen)[i] = temp;
-    }
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
  };
  for(let i = 0; i < 1; i++) {
-    let a = shuffle(deckBlue)[i];
-    if(!stageTwo.includes(a && stageOne)) {
+    let a = getRandomArrayElement(deckBlue);
+    if(!stageTwo.includes(a)) {
         stageTwo.push(a);
-    } else {
-        const temp = deckBlue[i];
-        deckBlue[i] = shuffle(deckBlue)[i];
-        shuffle(deckBlue)[i] = temp;
-    }
+        let ind = deckBlue.indexOf(a);
+        deckBlue.splice(ind, 1);
+    } 
  };
  for(let i = 0; i < 3; i++) {
-    let a = shuffle(deckBrown)[i];
-    if(!stageTwo.includes(a && stageOne)) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageTwo.includes(a)) {
         stageTwo.push(a);
-    } else {
-        const temp = deckBrown[i];
-        deckBrown[i] = shuffle(deckBrown)[i];
-        shuffle(deckBrown)[i] = temp;
-    }
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
  };
+ stage2[0].textContent = 2;
+ stage2[1].textContent = 1;
+ stage2[2].textContent = 3;
  console.log(stageTwo);
 
 //  stageThree
  for(let i = 0; i < 2; i++) {
-    let a = shuffle(deckGreen)[i];
-    if(!stageThree.includes(a && stageOne && stageTwo)) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageThree.includes(a)) {
         stageThree.push(a);
-    } else {
-        const temp = deckGreen[i];
-        deckGreen[i] = shuffle(deckGreen)[i];
-        shuffle(deckGreen)[i] = temp;
-    }
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
  };
  for(let i = 0; i < 4; i++) {
-    let a = shuffle(deckBrown)[i];
-    if(!stageThree.includes(a && stageOne && stageTwo)) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageThree.includes(a)) {
         stageThree.push(a);
-    } else {
-        const temp = shuffle(deckBrown)[i];
-        shuffle(deckBrown)[i] = deckBrown[i];
-        deckBrown[i] = temp;
-    }
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
  };
+ stage3[0].textContent = 2;
+ stage3[1].textContent = 0;
+ stage3[2].textContent = 4;
  console.log(stageThree);
 
  // перемешала катры на всех уровнях
