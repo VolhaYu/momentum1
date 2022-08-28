@@ -21,12 +21,18 @@ function choiceAncient() {
             shufflingButton.classList.add('shuffling-button-active');
             shufflingCards.classList.remove('shuffling-cards-active');
             randomCards.innerHTML = '';
-            shirtCard.style.display = 'flex';           
+            shirtCard.style.display = 'flex'; 
+            if(ancient[i] === ancient[0]) {
+                azathoth();
+            };
+            if(ancient[i] === ancient[1]) {
+                cthulhu();
+            };          
         });
     };
 }
 choiceAncient();
-function level() { // выюор уровня
+function level() { // выбор уровня
     for(let i = 0; i < difficulty.length; i++) {
         difficulty[i].addEventListener ('click', () => {
             for(let butt of difficulty) {
@@ -44,7 +50,7 @@ level();
 shufflingButton.addEventListener('click', () => { 
     shufflingButton.classList.toggle('shuffling-button-active');
     shufflingCards.classList.toggle('shuffling-cards-active');
-    randomCard();
+    // randomCard();
 });
 
 const blueCard = ['blue/blue1', 'blue/blue2', 'blue/blue3', 'blue/blue4', 'blue/blue5', 'blue/blue6', 'blue/blue7', 'blue/blue8', 'blue/blue9', 'blue/blue10', 'blue/blue11', 'blue/blue12'];
@@ -67,9 +73,9 @@ const shuffle = (deck) => {
     }
     return deck;
 };
-  let stageOne = [];
-  let stageTwo = [];
-  let stageThree = [];
+  let stageOne;
+  let stageTwo;
+  let stageThree;
 
 function azathoth() {
     //замешать 3 калоды карт по цветам
@@ -111,6 +117,7 @@ console.log(deckBlue);
 //замешать карты из разных калод по уровням
 
 // stageOne
+stageOne = [];
 for(let i = 0; i < 2; i++) {
     let a = getRandomArrayElement(deckBrown);
     if(!stageOne.includes(a)) {
@@ -140,6 +147,7 @@ for(let i = 0; i < 2; i++) {
  console.log(stageOne);
 
 //  stageTwo
+stageTwo = [];
  for(let i = 0; i < 2; i++) {
     let a = getRandomArrayElement(deckGreen);
     if(!stageTwo.includes(a)) {
@@ -170,6 +178,7 @@ for(let i = 0; i < 2; i++) {
  console.log(stageTwo);
 
 //  stageThree
+stageThree = [];
  for(let i = 0; i < 2; i++) {
     let a = getRandomArrayElement(deckGreen);
     if(!stageThree.includes(a)) {
@@ -187,8 +196,8 @@ for(let i = 0; i < 2; i++) {
     };
  };
  stage3[0].textContent = 2;
- stage3[1].textContent = 0;
- stage3[2].textContent = 4;
+ stage3[1].textContent = 4;
+ stage3[2].textContent = 0;
  console.log(stageThree);
 
  // перемешала катры на всех уровнях
@@ -206,11 +215,259 @@ for(let i = 0; i < 2; i++) {
     console.log(stageThree);
     console.log(stageTwo);
     console.log(stageOne);
-
+    randomCard();
 };
+
+function cthulhu() {
+    //замешать 3 калоды карт по цветам
+ let deckGreen = [];
+
+ for(let i = 0; i < 4; i++) {
+    let a = getRandomArrayElement(greenCard);
+    if(!deckGreen.includes(a)) {
+        deckGreen.push(a);
+        let ind = greenCard.indexOf(a);
+        greenCard.splice(ind, 1);
+    };
+ };
+ console.log(deckGreen);
+
+ let deckBrown = [];
+
+ for(let i = 0; i < 9; i++) {
+    let a = getRandomArrayElement(brownCard);
+    if(!deckBrown.includes(a)) {
+        deckBrown.push(a);
+        let ind = brownCard.indexOf(a);
+        brownCard.splice(ind, 1);
+    };
+ }
+ console.log(deckBrown);
+
+ let deckBlue = [];
+
+for(let i = 0; i < 2; i++) {
+   let a = getRandomArrayElement(blueCard);
+   if(!deckBlue.includes(a)) {
+       deckBlue.push(a);
+       let ind = blueCard.indexOf(a);
+       blueCard.splice(ind, 1);
+   };
+}
+console.log(deckBlue);
+//замешать карты из разных калод по уровням
+
+// stageOne
+stageOne = [];
+for(let i = 0; i < 2; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    let b = getRandomArrayElement(deckBlue);
+    if(!stageOne.includes(a)) {
+        stageOne.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+    if(!stageOne.includes(b)) {
+        stageOne.push(b);
+        let ind = deckBlue.indexOf(a);
+        deckBlue.splice(ind, 1);
+    };
+    
+ };
+ stage1[0].textContent = 0;
+ stage1[1].textContent = 2;
+ stage1[2].textContent = 2;
+ console.log(stageOne);
+
+//  stageTwo
+stageTwo = [];
+ for(let i = 0; i < 1; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stage2[0].textContent = 1;
+ stage2[1].textContent = 3;
+ stage2[2].textContent = 0;
+ console.log(stageTwo);
+
+//  stageThree
+stageThree = [];
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 4; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stage3[0].textContent = 3;
+ stage3[1].textContent = 4;
+ stage3[2].textContent = 0;
+ console.log(stageThree);
+
+ // перемешала катры на всех уровнях
+
+ for(let i = 0; i < stageThree.length; i++) {
+   shuffle(stageThree)[i];
+
+ };
+ for(let i = 0; i < stageTwo.length; i++) {
+    shuffle(stageTwo)[i];
+ };
+ for(let i = 0; i < stageOne.length; i++) {
+    shuffle(stageOne)[i];
+ };
+    console.log(stageThree);
+    console.log(stageTwo);
+    console.log(stageOne);
+    randomCard(); 
+};
+function iogSothoth() {
+    //замешать 3 калоды карт по цветам
+ let deckGreen = [];
+
+ for(let i = 0; i < 4; i++) {
+    let a = getRandomArrayElement(greenCard);
+    if(!deckGreen.includes(a)) {
+        deckGreen.push(a);
+        let ind = greenCard.indexOf(a);
+        greenCard.splice(ind, 1);
+    };
+ };
+ console.log(deckGreen);
+
+ let deckBrown = [];
+
+ for(let i = 0; i < 9; i++) {
+    let a = getRandomArrayElement(brownCard);
+    if(!deckBrown.includes(a)) {
+        deckBrown.push(a);
+        let ind = brownCard.indexOf(a);
+        brownCard.splice(ind, 1);
+    };
+ }
+ console.log(deckBrown);
+
+ let deckBlue = [];
+
+for(let i = 0; i < 2; i++) {
+   let a = getRandomArrayElement(blueCard);
+   if(!deckBlue.includes(a)) {
+       deckBlue.push(a);
+       let ind = blueCard.indexOf(a);
+       blueCard.splice(ind, 1);
+   };
+}
+console.log(deckBlue);
+//замешать карты из разных калод по уровням
+
+// stageOne
+stageOne = [];
+for(let i = 0; i < 2; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    let b = getRandomArrayElement(deckBlue);
+    if(!stageOne.includes(a)) {
+        stageOne.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+    if(!stageOne.includes(b)) {
+        stageOne.push(b);
+        let ind = deckBlue.indexOf(a);
+        deckBlue.splice(ind, 1);
+    };
+    
+ };
+ stage1[0].textContent = 0;
+ stage1[1].textContent = 2;
+ stage1[2].textContent = 2;
+ console.log(stageOne);
+
+//  stageTwo
+stageTwo = [];
+ for(let i = 0; i < 1; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageTwo.includes(a)) {
+        stageTwo.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stage2[0].textContent = 1;
+ stage2[1].textContent = 3;
+ stage2[2].textContent = 0;
+ console.log(stageTwo);
+
+//  stageThree
+stageThree = [];
+ for(let i = 0; i < 3; i++) {
+    let a = getRandomArrayElement(deckGreen);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckGreen.indexOf(a);
+        deckGreen.splice(ind, 1);
+    };
+ };
+ for(let i = 0; i < 4; i++) {
+    let a = getRandomArrayElement(deckBrown);
+    if(!stageThree.includes(a)) {
+        stageThree.push(a);
+        let ind = deckBrown.indexOf(a);
+        deckBrown.splice(ind, 1);
+    };
+ };
+ stage3[0].textContent = 3;
+ stage3[1].textContent = 4;
+ stage3[2].textContent = 0;
+ console.log(stageThree);
+
+ // перемешала катры на всех уровнях
+
+ for(let i = 0; i < stageThree.length; i++) {
+   shuffle(stageThree)[i];
+
+ };
+ for(let i = 0; i < stageTwo.length; i++) {
+    shuffle(stageTwo)[i];
+ };
+ for(let i = 0; i < stageOne.length; i++) {
+    shuffle(stageOne)[i];
+ };
+    console.log(stageThree);
+    console.log(stageTwo);
+    console.log(stageOne);
+    randomCard(); 
+}
 // вывод карты
 function randomCard() {
-    azathoth();
     let img = document.createElement('img');           
     shirtCard.addEventListener('click', () => {
         img.src = `assets/MythicCards/${stageOne.pop() || stageTwo.pop() || stageThree.pop()}.png`;
@@ -225,6 +482,6 @@ function randomCard() {
 
 function counter() { // счетчик карт
     // stage1[0].textContent
-    console.log(stage1);
+    // console.log(stage1);
 };
 counter();
