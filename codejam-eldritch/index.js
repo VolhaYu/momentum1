@@ -593,8 +593,3 @@ function randomCard() {
 };
 randomCard();
 
-function counter() { // счетчик карт
-    // stage1[0].textContent
-    // console.log(stage1);
-};
-counter();
