@@ -18,8 +18,10 @@ function choiceAncient() {
                 img.classList.remove('img-active');
             };
             ancient[i].classList.toggle('img-active');
-            shufflingButton.classList.add('shuffling-button-active');
             shufflingCards.classList.remove('shuffling-cards-active');
+            for(let butt of difficulty) {
+                butt.classList.remove('button-active');
+            };
             randomCards.innerHTML = '';
             shirtCard.style.display = 'flex'; 
             if(ancient[i] === ancient[0]) {
@@ -46,8 +48,13 @@ function level() { // выбор уровня
             for(let butt of difficulty) {
                 butt.classList.remove('button-active');
             };
-            difficulty[i].classList.toggle('button-active');
-            shufflingButton.classList.add('shuffling-button-active');
+            if(difficulty[i] === difficulty[2]) {
+                difficulty[i].classList.toggle('button-active');
+                shufflingButton.classList.add('shuffling-button-active');
+            } else {
+                shufflingButton.classList.remove('shuffling-button-active');
+            }
+
         });
     };
 }
