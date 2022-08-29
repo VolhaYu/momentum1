@@ -45,16 +45,12 @@ choiceAncient();
 function level() { // выбор уровня
     for(let i = 0; i < difficulty.length; i++) {
         difficulty[i].addEventListener ('click', () => {
-            for(let butt of difficulty) {
-                butt.classList.remove('button-active');
-            };
             if(difficulty[i] === difficulty[2]) {
                 difficulty[i].classList.toggle('button-active');
                 shufflingButton.classList.add('shuffling-button-active');
             } else {
                 shufflingButton.classList.remove('shuffling-button-active');
-            }
-
+            };
         });
     };
 }
@@ -88,6 +84,7 @@ const shuffle = (deck) => {
     }
     return deck;
 };
+
 let stageOne;
 let stageTwo;
 let stageThree;
@@ -154,7 +151,7 @@ function azathoth() {
  stage1[2].textContent = 1;
  console.log(stageOne);
 
-  stageTwo = [];
+ stageTwo = [];
  for(let i = 0; i < 2; i++) {
     let a = getRandomArrayElement(deckGreen);
     if(!stageTwo.includes(a)) {
